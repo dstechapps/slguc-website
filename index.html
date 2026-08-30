@@ -1299,7 +1299,7 @@ window.handleSheetData = function(data){
     DATA = data;
     sheetDataLoaded = true;
 
-    console.log("Google Sheets data loaded:", DATA);
+    console.log("Google Sheets JSONP callback executed successfully:", DATA);
 
     startCountdown();
     fillDiyaRows();
@@ -1326,6 +1326,8 @@ function loadSheetData(){
     Date.now();
 
   script.async = true;
+
+  console.log("Loading Google Sheets JSONP:", script.src);
 
   script.onerror = function(){
     showDataError(
