@@ -1020,9 +1020,10 @@ footer a{color:var(--gold-400);font-weight:600;}
 
 <script>
 
-const SHEET_API = "https://script.google.com/macros/s/AKfycbxn56dYNZfPG4CcWGwDmIx4kmkUK19m__zN17wfWJBtZwMgr0DO6DX3Q4U7GIA2C82A/exec";
+const SHEET_API = "https://script.google.com/macros/s/AKfycbxn56dYNZfPG4CcWGwDmIx4kmkUK19m__zN17wfWJBtZwMgr0DO6DX3Q4U7GIA2C82/exec";
 
 let DATA = {};
+let sheetDataLoaded = false;
 
 /* ---------- Countdown ---------- */
 function startCountdown(){
@@ -1033,6 +1034,7 @@ function startCountdown(){
     m: document.getElementById('cd-mins'),
     s: document.getElementById('cd-secs')
   };
+
   function tick(){
     const now = Date.now();
     let diff = Math.max(0, target - now);
@@ -1040,11 +1042,13 @@ function startCountdown(){
     const h = Math.floor(diff/3600000); diff -= h*3600000;
     const m = Math.floor(diff/60000); diff -= m*60000;
     const s = Math.floor(diff/1000);
+
     els.d.textContent = String(d).padStart(2,'0');
     els.h.textContent = String(h).padStart(2,'0');
     els.m.textContent = String(m).padStart(2,'0');
     els.s.textContent = String(s).padStart(2,'0');
   }
+
   tick();
   setInterval(tick, 1000);
 }
@@ -1058,6 +1062,7 @@ function diyaSVG(){
     <ellipse cx="20" cy="19.6" rx="16" ry="3.4" fill="#ffdb84"/>
   </svg>`;
 }
+
 function fillDiyaRows(){
   ['diyaRow','diyaRow2','diyaRow3','diyaRow4'].forEach(id=>{
     const row = document.getElementById(id);
@@ -1074,17 +1079,20 @@ const photoIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 const plusIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
 
 function initials(name){
-  return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  return String(name || '').split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 }
+
 function todayKey(){
   const t = new Date();
-  return t.toISOString().slice(5,10); // MM-DD, rough check
+  return t.toISOString().slice(5,10);
 }
 
 /* ---------- Render Events ---------- */
 function renderEvents(){
   const wrap = document.getElementById('eventsScroll');
-  wrap.innerHTML = DATA.events.map((e,i)=>`
+  if (!wrap) return;
+
+  wrap.innerHTML = (DATA.events || []).map(e=>`
     <div class="day-card">
       <span class="day-badge">DAY ${e.day}</span>
       <h4>${e.title}</h4>
@@ -1098,7 +1106,9 @@ function renderEvents(){
 /* ---------- Render Committee ---------- */
 function renderCommittee(){
   const wrap = document.getElementById('committeeScroll');
-  wrap.innerHTML = DATA.committee.map(m=>`
+  if (!wrap) return;
+
+  wrap.innerHTML = (DATA.committee || []).map(m=>`
     <div class="member-card">
       <div class="avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${initials(m.name)}</div>
       <div class="mname">${m.name}</div>
@@ -1109,14 +1119,15 @@ function renderCommittee(){
 /* ---------- Render Donors ---------- */
 function renderDonors(){
   const wrap = document.getElementById('donorSection');
-  
-  // Generating identical duplicated chunks for the seamless CSS marquee loop 
-  const marqueeContent = DATA.donors.others.map(n=>`<span class="marquee-chip">${n}</span>`).join('');
-  
+  if (!wrap) return;
+
+  const donors = DATA.donors || { idol: '', others: [] };
+  const marqueeContent = (donors.others || []).map(n=>`<span class="marquee-chip">${n}</span>`).join('');
+
   wrap.innerHTML = `
     <div class="idol-donor">
       <h4>Idol Donor</h4>
-      <div class="idol-donor-name">${DATA.donors.idol}</div>
+      <div class="idol-donor-name">${donors.idol || ''}</div>
     </div>
     <div class="donors-marquee-container">
       <div class="donors-marquee">
@@ -1129,48 +1140,74 @@ function renderDonors(){
 
 /* ---------- Render Prizes & Winners ---------- */
 function renderDraw(){
-  document.getElementById('prizeRow').innerHTML = DATA.prizes.map(p=>`
-    <div class="prize-card">
-      <div class="rank">${p.rank}</div>
-      <div class="pname">${p.name}</div>
-    </div>
-  `).join('');
-  document.getElementById('winnersGrid').innerHTML = DATA.winners.map(w=>`
-    <div class="winner-card">
-      <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(w.name)}</div>
-      <div>
-        <div class="wname">${w.name}</div>
-        <div class="wprize">${w.prize}</div>
-        <div class="wticket">Ticket ${w.ticket}</div>
+  const prizeRow = document.getElementById('prizeRow');
+  const winnersGrid = document.getElementById('winnersGrid');
+
+  if (prizeRow) {
+    prizeRow.innerHTML = (DATA.prizes || []).map(p=>`
+      <div class="prize-card">
+        <div class="rank">${p.rank}</div>
+        <div class="pname">${p.name}</div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+  }
+
+  if (winnersGrid) {
+    winnersGrid.innerHTML = (DATA.winners || []).map(w=>`
+      <div class="winner-card">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(w.name)}</div>
+        <div>
+          <div class="wname">${w.name}</div>
+          <div class="wprize">${w.prize}</div>
+          <div class="wticket">Ticket ${w.ticket}</div>
+        </div>
+      </div>
+    `).join('');
+  }
 }
 
 /* ---------- Render Gallery ---------- */
 function renderGallery(){
   const wrap = document.getElementById('galleryGrid');
-  wrap.innerHTML = DATA.gallery.map((cap,i)=>`
+  if (!wrap) return;
+
+  wrap.innerHTML = (DATA.gallery || []).map(cap=>`
     <div class="gallery-tile" data-cap="${cap}" tabindex="0" role="button" aria-label="View ${cap} photo">
       <div class="ph">${photoIcon}<span style="font-size:9.5px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">Add Photo</span></div>
       <div class="cap">${cap}</div>
     </div>
   `).join('');
+
   wrap.querySelectorAll('.gallery-tile').forEach(tile=>{
-    tile.addEventListener('click', ()=>openLightbox(tile.dataset.cap, tile.querySelector('.ph').style.background));
+    tile.addEventListener('click', ()=>openLightbox(tile.dataset.cap));
     tile.addEventListener('keypress', (e)=>{ if(e.key==='Enter') tile.click(); });
   });
 }
-function openLightbox(cap, bg){
+
+function openLightbox(cap){
   const box = document.getElementById('lightboxBox');
-  box.style.background = getComputedStyle(document.querySelector('.gallery-tile .ph')).background;
-  box.innerHTML = `${photoIcon.replace('width="24"','width="40"')}<div class="cap">${cap}</div>`;
-  box.style.display='flex';box.style.flexDirection='column';box.style.alignItems='center';box.style.justifyContent='center';box.style.color='rgba(255,255,255,0.85)';
+  const firstPh = document.querySelector('.gallery-tile .ph');
+
+  if (!box) return;
+
+  if (firstPh) {
+    box.style.background = getComputedStyle(firstPh).background;
+  }
+
+  box.innerHTML = `${photoIcon}<div class="cap">${cap}</div>`;
+  box.style.display='flex';
+  box.style.flexDirection='column';
+  box.style.alignItems='center';
+  box.style.justifyContent='center';
+  box.style.color='rgba(255,255,255,0.85)';
+
   document.getElementById('lightbox').classList.add('open');
 }
+
 document.getElementById('lightboxClose').addEventListener('click', ()=>{
   document.getElementById('lightbox').classList.remove('open');
 });
+
 document.getElementById('lightbox').addEventListener('click', (e)=>{
   if(e.target.id==='lightbox') e.currentTarget.classList.remove('open');
 });
@@ -1178,12 +1215,15 @@ document.getElementById('lightbox').addEventListener('click', (e)=>{
 /* ---------- Render FAQ ---------- */
 function renderFaq(){
   const wrap = document.getElementById('faqList');
-  wrap.innerHTML = DATA.faqs.map((f,i)=>`
+  if (!wrap) return;
+
+  wrap.innerHTML = (DATA.faqs || []).map((f,i)=>`
     <div class="faq-item" id="faq-${i}">
       <button class="faq-q" data-i="${i}">${f.q}${plusIcon}</button>
       <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
     </div>
   `).join('');
+
   wrap.querySelectorAll('.faq-q').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const item = btn.closest('.faq-item');
@@ -1197,8 +1237,19 @@ function renderFaq(){
 /* ---------- Side menu ---------- */
 const sideMenu = document.getElementById('sideMenu');
 const menuScrim = document.getElementById('menuScrim');
-function openMenu(){ sideMenu.classList.add('open'); menuScrim.classList.add('open'); sideMenu.setAttribute('aria-hidden','false'); }
-function closeMenu(){ sideMenu.classList.remove('open'); menuScrim.classList.remove('open'); sideMenu.setAttribute('aria-hidden','true'); }
+
+function openMenu(){
+  sideMenu.classList.add('open');
+  menuScrim.classList.add('open');
+  sideMenu.setAttribute('aria-hidden','false');
+}
+
+function closeMenu(){
+  sideMenu.classList.remove('open');
+  menuScrim.classList.remove('open');
+  sideMenu.setAttribute('aria-hidden','true');
+}
+
 document.getElementById('menuOpenBtn').addEventListener('click', openMenu);
 document.getElementById('menuCloseBtn').addEventListener('click', closeMenu);
 menuScrim.addEventListener('click', closeMenu);
@@ -1208,6 +1259,7 @@ document.querySelectorAll('.menu-link').forEach(a=>a.addEventListener('click', c
 function initTabbar(){
   const tabs = document.querySelectorAll('.tabbar a');
   const sections = ['home','events','donors','draw','gallery'].map(id=>document.getElementById(id));
+
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
@@ -1216,39 +1268,39 @@ function initTabbar(){
       }
     });
   }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+
   sections.forEach(s=>{ if(s) obs.observe(s); });
 }
 
+/* ---------- Error message ---------- */
+function showDataError(message){
+  console.error("Google Sheets error:", message);
 
-/* ---------- Load Google Sheets Data ---------- */
-async function loadSheetData() {
+  if (document.getElementById('dataLoadError')) return;
+
+  const el = document.createElement('div');
+  el.id = 'dataLoadError';
+  el.style.cssText =
+    "position:fixed;left:12px;right:12px;bottom:82px;z-index:9999;" +
+    "padding:12px 14px;border-radius:12px;background:#26060e;color:#fff;" +
+    "font:500 12px/1.5 Poppins,system-ui,sans-serif;" +
+    "box-shadow:0 8px 24px rgba(0,0,0,.25);";
+  el.textContent = message;
+  document.body.appendChild(el);
+}
+
+/* ---------- JSONP callback ---------- */
+window.handleSheetData = function(data){
   try {
-    const response = await fetch(SHEET_API);
-
-    if (!response.ok) {
-      throw new Error(`Google Sheets API returned HTTP ${response.status}`);
+    if (!data || typeof data !== 'object') {
+      throw new Error("The Google Sheets API returned invalid data.");
     }
 
-    const contentType = response.headers.get("content-type") || "";
-    if (!contentType.toLowerCase().includes("application/json")) {
-      const body = await response.text();
-      throw new Error(
-        `Expected JSON from Google Sheets API, but received ${contentType || "unknown content type"}. ` +
-        `Response starts with: ${body.slice(0, 200)}`
-      );
-    }
-
-    const json = await response.json();
-
-    if (!json || typeof json !== "object") {
-      throw new Error("Google Sheets API returned invalid JSON.");
-    }
-
-    DATA = json;
+    DATA = data;
+    sheetDataLoaded = true;
 
     console.log("Google Sheets data loaded:", DATA);
 
-    // Render only after the Sheet data has loaded.
     startCountdown();
     fillDiyaRows();
     renderEvents();
@@ -1260,23 +1312,33 @@ async function loadSheetData() {
     initTabbar();
 
   } catch (error) {
-    console.error("Google Sheets error:", error);
-
-    const message = document.createElement("div");
-    message.style.cssText =
-      "position:fixed;left:12px;right:12px;bottom:82px;z-index:9999;" +
-      "padding:12px 14px;border-radius:12px;background:#26060e;color:#fff;" +
-      "font:500 12px/1.5 Poppins,system-ui,sans-serif;" +
-      "box-shadow:0 8px 24px rgba(0,0,0,.25);";
-    message.textContent =
-      "Unable to load the latest festival data. Please refresh the page.";
-    document.body.appendChild(message);
+    showDataError(error.message || "Unable to process Google Sheets data.");
   }
+};
+
+/* ---------- Load Google Sheets Data without fetch/CORS ---------- */
+function loadSheetData(){
+  const script = document.createElement('script');
+
+  script.src =
+    SHEET_API +
+    '?callback=handleSheetData&_=' +
+    Date.now();
+
+  script.async = true;
+
+  script.onerror = function(){
+    showDataError(
+      "Unable to load the latest festival data. Please refresh the page."
+    );
+  };
+
+  document.head.appendChild(script);
 }
 
 /* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", loadSheetData);
+document.addEventListener('DOMContentLoaded', loadSheetData);
 
-</script>
+
 </body>
 </html>
