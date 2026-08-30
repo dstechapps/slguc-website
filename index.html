@@ -1236,6 +1236,10 @@ window.handleSheetData = function(data){
   renderGallery();
   renderFaq();
   initTabbar();
+
+   if (window.AndroidApp && typeof window.AndroidApp.dataLoaded === "function") {
+    window.AndroidApp.dataLoaded();
+}
 };
 
 function loadSheetData(){
