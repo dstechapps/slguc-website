@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Sri Lakshmi Ganapathi Utsava Committee</title>
+<meta name="theme-color" content="#2b0a12" />
+<meta name="description" content="Sri Lakshmi Ganapathi Utsava Committee — Ganesh Chaturthi celebrations, schedule, committee, donors and lucky draw." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --maroon-950:#26060e;
+  --maroon-900:#3a0f1a;
+  --maroon-800:#4c1522;
+  --kumkum-600:#b81c37;
+  --kumkum-500:#d92847;
+  --kumkum-400:#ef4a63;
+  --gold-600:#c98300;
+  --gold-500:#f0a500;
+  --gold-400:#ffc94d;
+  --gold-100:#fff1cf;
+  --teal-700:#0a544c;
+  --teal-600:#0c6e63;
+  --teal-500:#158a7c;
+  --ivory-50:#fff8ef;
+  --ivory-100:#fdecdb;
+  --ink-900:#251008;
+  --ink-700:#4a2a1d;
+  --ink-500:#7a5847;
+  --line:#eadfce;
+  --shadow-soft: 0 10px 30px rgba(38,6,14,0.14);
+  --shadow-pop: 0 16px 40px rgba(38,6,14,0.22);
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --font-display: 'Yatra One', cursive;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --tab-bar-h: 66px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--ivory-50);
+  color:var(--ink-900);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  padding-bottom:calc(var(--tab-bar-h) + var(--safe-b));
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;letter-spacing:.3px;}
+p{margin:0;}
+.eyebrow{
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:2.6px;
+  text-transform:uppercase;
+  color:var(--kumkum-600);
+}
+.section{
+  padding:56px 20px 44px;
+  position:relative;
+  max-width:1080px;
+  margin:0 auto;
+}
+.section-head{
+  text-align:center;
+  margin-bottom:30px;
+}
+.section-head h2{
+  font-size:clamp(28px,6vw,40px);
+  color:var(--ink-900);
+  margin-top:8px;
+}
+.section-head .sub{
+  margin-top:10px;
+  color:var(--ink-500);
+  font-size:14.5px;
+  max-width:460px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.55;
+}
+@media(prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}
+:focus-visible{outline:2.5px solid var(--gold-500); outline-offset:2px;}
+
+/* rangoli dot texture */
+.rangoli-bg{
+  background-image: radial-gradient(var(--gold-400) 0.7px, transparent 0.7px);
+  background-size: 22px 22px;
+  opacity:.12;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:calc(12px + var(--safe-t)) 16px 12px;
+  background:linear-gradient(180deg,var(--maroon-950),var(--maroon-900) 92%);
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+.brand-mark{
+  width:38px;height:38px;flex:none;
+  border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, var(--gold-400), var(--gold-600) 70%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 3px rgba(240,165,0,0.18), 0 4px 10px rgba(0,0,0,.3);
+}
+.brand-mark svg{width:22px;height:22px;}
+.brand-text{min-width:0;}
+.brand-text .name{
+  font-family:var(--font-display);
+  color:var(--gold-100);
+  font-size:15px;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  max-width:52vw;
+}
+.brand-text .est{
+  color:rgba(255,241,207,0.6);
+  font-size:10px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.icon-btn{
+  width:40px;height:40px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.14);
+  background:rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-100);
+  flex:none;
+}
+.icon-btn svg{width:19px;height:19px;}
+
+/* ============================================================
+   SIDE MENU
+   ============================================================ */
+.menu-scrim{
+  position:fixed;inset:0;background:rgba(20,4,8,0.55);
+  z-index:90;opacity:0;pointer-events:none;transition:opacity .25s ease;
+  backdrop-filter: blur(2px);
+}
+.menu-scrim.open{opacity:1;pointer-events:auto;}
+.side-menu{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(320px,84vw);
+  background:var(--ivory-50);
+  z-index:91;
+  transform:translateX(105%);
+  transition:transform .32s cubic-bezier(.2,.9,.25,1);
+  padding:calc(20px + var(--safe-t)) 22px 24px;
+  overflow-y:auto;
+  box-shadow:-14px 0 34px rgba(0,0,0,0.25);
+}
+.side-menu.open{transform:translateX(0);}
+.side-menu h3{font-size:20px;color:var(--kumkum-600);margin-bottom:4px;}
+.side-menu .close-x{position:absolute;top:calc(18px + var(--safe-t));right:18px;width:34px;height:34px;border-radius:50%;background:var(--ivory-100);display:flex;align-items:center;justify-content:center;border:none;}
+.side-menu .close-x svg{width:16px;height:16px;color:var(--ink-700);}
+.side-menu nav{display:flex;flex-direction:column;margin-top:22px;gap:2px;}
+.side-menu nav a{
+  padding:13px 4px;
+  border-bottom:1px solid var(--line);
+  font-weight:500;
+  font-size:14.5px;
+  display:flex;align-items:center;gap:12px;
+  color:var(--ink-900);
+}
+.side-menu nav a svg{width:18px;height:18px;color:var(--kumkum-600);flex:none;}
+.side-menu .social-row{display:flex;gap:10px;margin-top:22px;}
+.side-menu .social-row a{
+  width:42px;height:42px;border-radius:50%;background:var(--maroon-950);color:var(--gold-100);
+  display:flex;align-items:center;justify-content:center;
+}
+.side-menu .social-row a svg{width:19px;height:19px;}
+.side-menu .menu-cta{
+  margin-top:24px;display:block;text-align:center;
+  background:linear-gradient(135deg,#25D366,#1cb958);
+  color:#fff;font-weight:600;font-size:14px;
+  padding:13px;border-radius:14px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(240,165,0,0.28), transparent 55%),
+    radial-gradient(ellipse at 100% 0%, rgba(217,40,71,0.35), transparent 50%),
+    linear-gradient(160deg,var(--maroon-950) 0%,var(--maroon-900) 55%,var(--kumkum-600) 150%);
+  color:var(--ivory-50);
+  padding:38px 20px 0;
+  overflow:hidden;
+}
+.hero-inner{position:relative;z-index:2;max-width:640px;margin:0 auto;text-align:center;}
+.hero .eyebrow{color:var(--gold-400);}
+.hero h1{
+  font-size:clamp(34px,9vw,52px);
+  line-height:1.08;
+  margin-top:10px;
+  color:#fff;
+  text-shadow:0 6px 26px rgba(0,0,0,0.35);
+}
+.hero h1 span{color:var(--gold-400);}
+.hero .tagline{
+  margin-top:14px;
+  font-size:14.5px;
+  color:rgba(255,248,239,0.78);
+  line-height:1.6;
+  max-width:420px;
+  margin-left:auto;margin-right:auto;
+}
+.countdown{
+  margin:26px auto 4px;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  max-width:420px;
+}
+.countdown .cell{
+  flex:1;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,241,207,0.18);
+  border-radius:14px;
+  padding:11px 4px 9px;
+  backdrop-filter:blur(6px);
+}
+.countdown .num{
+  font-family:var(--font-display);
+  font-size:clamp(20px,6vw,28px);
+  color:var(--gold-400);
+  display:block;
+  line-height:1;
+}
+.countdown .lbl{
+  font-size:9.5px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:rgba(255,248,239,0.65);
+  margin-top:5px;
+  display:block;
+}
+.countdown-caption{
+  margin-top:12px;
+  font-size:12px;
+  color:rgba(255,248,239,0.65);
+}
+.hero-ctas{
+  display:flex;gap:10px;justify-content:center;
+  margin:26px 0 0;flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 22px;
+  border-radius:30px;
+  font-weight:600;
+  font-size:13.5px;
+  border:none;
+  letter-spacing:.2px;
+}
+.btn svg{width:16px;height:16px;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-600));
+  color:var(--maroon-950);
+  box-shadow:0 10px 24px rgba(240,165,0,0.35);
+}
+.btn-outline{
+  background:rgba(255,255,255,0.06);
+  color:#fff;
+  border:1.4px solid rgba(255,248,239,0.4);
+}
+.btn-whatsapp{
+  background:linear-gradient(135deg,#2fdc73,#1fa851);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(31,168,81,0.35);
+}
+
+/* diya row signature motif */
+.diya-row{
+  display:flex;
+  justify-content:space-evenly;
+  align-items:flex-end;
+  margin-top:34px;
+  padding:0 4px;
+  position:relative;
+  z-index:2;
+}
+.diya{width:7.4%;max-width:34px;}
+.diya .flame{transform-origin:50% 100%; animation:flicker 2.6s ease-in-out infinite;}
+.diya:nth-child(2n) .flame{animation-delay:.4s;animation-duration:2.2s;}
+.diya:nth-child(3n) .flame{animation-delay:.9s;animation-duration:2.9s;}
+.diya:nth-child(4n) .flame{animation-delay:.2s;animation-duration:2.4s;}
+@keyframes flicker{
+  0%,100%{transform:scaleY(1) scaleX(1) rotate(0deg); opacity:1;}
+  25%{transform:scaleY(1.12) scaleX(0.94) rotate(-2deg); opacity:0.92;}
+  50%{transform:scaleY(0.9) scaleX(1.05) rotate(1.5deg); opacity:1;}
+  75%{transform:scaleY(1.08) scaleX(0.96) rotate(-1deg); opacity:0.95;}
+}
+.hero-wave{display:block;width:100%;margin-top:30px;position:relative;z-index:1;}
+
+/* ============================================================
+   MUHURAT STRIP
+   ============================================================ */
+.strip{
+  background:var(--gold-100);
+  border-top:1px solid rgba(38,6,14,0.06);
+  border-bottom:1px solid rgba(38,6,14,0.06);
+  padding:13px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  font-size:12.5px;
+  color:var(--ink-700);
+  flex-wrap:wrap;
+}
+.strip svg{width:16px;height:16px;color:var(--kumkum-600);flex:none;}
+.strip b{color:var(--kumkum-600);}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:26px 22px;
+  box-shadow:var(--shadow-soft);
+  text-align:center;
+}
+.about-card p{color:var(--ink-700);font-size:14px;line-height:1.75;}
+.stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-top:22px;
+}
+.stat{
+  background:var(--ivory-100);
+  border-radius:14px;
+  padding:14px 6px;
+}
+.stat .n{font-family:var(--font-display);font-size:22px;color:var(--kumkum-600);}
+.stat .l{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-500);margin-top:2px;}
+
+/* ============================================================
+   EVENTS (horizontal snap)
+   ============================================================ */
+.events-scroll{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:6px 20px 18px;
+  margin:0 -20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.events-scroll::-webkit-scrollbar{display:none;}
+.day-card{
+  scroll-snap-align:start;
+  flex:0 0 auto;
+  width:230px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:18px 16px;
+  box-shadow:var(--shadow-soft);
+  position:relative;
+}
+.day-card.is-today{
+  border-color:var(--gold-500);
+  box-shadow:0 0 0 2.5px var(--gold-400), var(--shadow-pop);
+}
+.day-card .day-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--maroon-950);color:var(--gold-400);
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  padding:5px 11px;border-radius:20px;
+}
+.day-card h4{
+  font-family:var(--font-display);
+  font-size:19px;color:var(--ink-900);
+  margin:12px 0 4px;line-height:1.25;
+}
+.day-card .date{font-size:12px;color:var(--kumkum-600);font-weight:600;}
+.day-card .desc{margin-top:8px;font-size:12.5px;color:var(--ink-500);line-height:1.6;}
+.day-card .time{
+  margin-top:12px;display:flex;align-items:center;gap:6px;
+  font-size:11.5px;color:var(--teal-600);font-weight:600;
+}
+.day-card .time svg{width:13px;height:13px;}
+.events-note{
+  text-align:center;font-size:11.5px;color:var(--ink-500);
+  margin-top:4px;
+}
+
+/* ============================================================
+   DIVIDER (diya strip reused, dark)
+   ============================================================ */
+.section-divider{
+  background:var(--maroon-950);
+  padding:22px 20px;
+  overflow:hidden;
+}
+.section-divider .diya-row{margin-top:0;}
+.section-divider .diya{max-width:26px;}
+
+/* ============================================================
+   COMMITTEE (horizontal snap)
+   ============================================================ */
+.committee-scroll{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:6px 20px 18px;
+  margin:0 -20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.committee-scroll::-webkit-scrollbar{display:none;}
+.member-card{
+  scroll-snap-align:start;
+  flex:0 0 auto;
+  width:130px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:20px 12px 18px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+}
+.avatar{
+  width:58px;height:58px;border-radius:50%;
+  margin:0 auto 10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:19px;color:#fff;
+}
+.member-card .mname{font-weight:600;font-size:13.5px;color:var(--ink-900);}
+
+/* ============================================================
+   DONORS
+   ============================================================ */
+.idol-donor {
+  background: linear-gradient(135deg, var(--ivory-50), var(--ivory-100));
+  border: 2px solid var(--gold-400);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow-pop);
+}
+.idol-donor h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--ink-700);
+  margin-bottom: 10px;
+}
+.idol-donor .idol-donor-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--kumkum-600);
+}
+
+.donors-marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 16px 0;
+  margin: 0 -20px 24px;
+  background: #fff;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+}
+.donors-marquee {
+  display: inline-flex;
+  gap: 16px;
+  animation: marquee 30s linear infinite;
+}
+.donors-marquee:hover {
+  animation-play-state: paused;
+}
+.marquee-chip {
+  display: inline-block;
+  background: var(--ivory-50);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-900);
+  border: 1px solid var(--gold-400);
+  box-shadow: 0 4px 10px rgba(38,6,14,0.06);
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+.donate-cta{
+  margin-top:6px;
+  background:linear-gradient(135deg,var(--kumkum-500),var(--kumkum-600));
+  border-radius:var(--radius-lg);
+  padding:24px 22px;
+  text-align:center;
+  color:#fff;
+  box-shadow:var(--shadow-pop);
+}
+.donate-cta h4{font-family:var(--font-display);font-size:22px;}
+.donate-cta p{font-size:13px;margin-top:8px;color:rgba(255,255,255,0.85);line-height:1.6;}
+.donate-cta .btn{margin-top:16px;}
+
+/* ============================================================
+   LUCKY DRAW
+   ============================================================ */
+.prize-row{
+  display:flex;gap:12px;overflow-x:auto;padding:4px 20px 14px;margin:0 -20px;
+  -webkit-overflow-scrolling:touch;
+}
+.prize-row::-webkit-scrollbar{display:none;}
+.prize-card{
+  flex:0 0 auto;width:150px;
+  background:linear-gradient(160deg,#fff,var(--ivory-100));
+  border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:16px 14px;text-align:center;box-shadow:var(--shadow-soft);
+}
+.prize-card .rank{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-600));
+  color:var(--maroon-950);font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
+}
+.prize-card .pname{font-weight:600;font-size:12.5px;color:var(--ink-900);line-height:1.4;}
+.winners-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px;}
+@media(min-width:560px){.winners-grid{grid-template-columns:1fr 1fr;}}
+.winner-card{
+  display:flex;align-items:center;gap:13px;
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-md);padding:14px;
+  box-shadow:var(--shadow-soft);
+}
+.winner-card .avatar{margin:0;flex:none;width:48px;height:48px;font-size:15px;}
+.winner-card .wname{font-weight:600;font-size:13.5px;color:var(--ink-900);}
+.winner-card .wprize{font-size:11.5px;color:var(--teal-600);font-weight:600;margin-top:2px;}
+.winner-card .wticket{font-size:10.5px;color:var(--ink-500);margin-top:2px;}
+.draw-note{
+  margin-top:16px;font-size:11.5px;color:var(--ink-500);
+  text-align:center;line-height:1.6;
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+}
+@media(min-width:560px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+.gallery-tile{
+  position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;
+  display:flex;align-items:flex-end;
+  border:1px solid var(--line);
+}
+.gallery-tile img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.gallery-tile .ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+}
+.gallery-tile .ph svg{width:26px;height:26px;color:rgba(255,255,255,0.75);}
+.gallery-tile .cap{
+  position:relative;z-index:2;width:100%;
+  padding:10px 10px 9px;
+  font-size:11px;font-weight:600;color:#fff;
+  background:linear-gradient(0deg,rgba(0,0,0,0.55),transparent);
+}
+.gallery-tile:nth-child(6n+1) .ph{background:linear-gradient(155deg,var(--kumkum-500),var(--maroon-900));}
+.gallery-tile:nth-child(6n+2) .ph{background:linear-gradient(155deg,var(--gold-500),var(--kumkum-600));}
+.gallery-tile:nth-child(6n+3) .ph{background:linear-gradient(155deg,var(--teal-600),var(--maroon-950));}
+.gallery-tile:nth-child(6n+4) .ph{background:linear-gradient(155deg,var(--maroon-800),var(--kumkum-500));}
+.gallery-tile:nth-child(6n+5) .ph{background:linear-gradient(155deg,var(--gold-600),var(--teal-700));}
+.gallery-tile:nth-child(6n+6) .ph{background:linear-gradient(155deg,var(--kumkum-600),var(--gold-500));}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;background:rgba(10,2,4,0.92);
+  z-index:120;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;padding:26px;
+}
+.lightbox.open{opacity:1;pointer-events:auto;}
+.lightbox-box{
+  width:min(320px,88vw);aspect-ratio:1/1;border-radius:18px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.lightbox-box .cap{position:absolute;bottom:0;left:0;right:0;padding:16px;color:#fff;font-weight:600;font-size:13px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);}
+.lightbox-close{
+  position:absolute;top:22px;right:22px;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-close svg{width:17px;height:17px;color:#fff;}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-item{
+  border-bottom:1px solid var(--line);
+}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;
+  padding:16px 4px;display:flex;align-items:center;justify-content:space-between;
+  font-weight:600;font-size:13.5px;color:var(--ink-900);gap:10px;
+}
+.faq-q svg{width:16px;height:16px;color:var(--kumkum-600);flex:none;transition:transform .25s ease;}
+.faq-item.open .faq-q svg{transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  font-size:12.5px;color:var(--ink-500);line-height:1.7;
+}
+.faq-a-inner{padding:0 4px 16px;}
+.faq-item.open .faq-a{max-height:220px;}
+
+/* ============================================================
+   CONTACT / FOOTER
+   ============================================================ */
+.contact-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:22px;box-shadow:var(--shadow-soft);
+}
+.contact-row{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.contact-row:last-child{border-bottom:none;}
+.contact-row .ic{
+  width:38px;height:38px;border-radius:11px;background:var(--ivory-100);
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.contact-row .ic svg{width:17px;height:17px;color:var(--kumkum-600);}
+.contact-row .tt{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-500);font-weight:600;}
+.contact-row .vv{font-size:13.5px;color:var(--ink-900);margin-top:2px;font-weight:500;}
+.map-embed{
+  margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+}
+.social-strip{
+  display:flex;gap:10px;justify-content:center;margin-top:22px;
+}
+.social-strip a{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--maroon-950);color:var(--gold-100);
+  display:flex;align-items:center;justify-content:center;
+}
+.social-strip a svg{width:20px;height:20px;}
+
+footer{
+  background:var(--maroon-950);color:rgba(255,248,239,0.6);
+  text-align:center;padding:34px 20px 30px;font-size:12px;line-height:1.9;
+}
+footer .fname{font-family:var(--font-display);color:var(--gold-100);font-size:18px;display:block;margin-bottom:6px;}
+footer a{color:var(--gold-400);font-weight:600;}
+
+/* ============================================================
+   FLOATING WHATSAPP FAB
+   ============================================================ */
+.fab-whatsapp{
+  position:fixed;
+  right:16px;
+  bottom:calc(var(--tab-bar-h) + var(--safe-b) + 16px);
+  z-index:55;
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,#2fdc73,#1fa851);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(31,168,81,0.45);
+  color:#fff;
+}
+.fab-whatsapp svg{width:26px;height:26px;}
+
+/* ============================================================
+   BOTTOM TAB BAR
+   ============================================================ */
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  height:calc(var(--tab-bar-h) + var(--safe-b));
+  padding-bottom:var(--safe-b);
+  background:rgba(255,248,239,0.94);
+  backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);
+  display:flex;
+  box-shadow:0 -6px 20px rgba(38,6,14,0.08);
+}
+.tabbar a{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  color:var(--ink-500);font-size:9.5px;font-weight:600;letter-spacing:.2px;
+}
+.tabbar a svg{width:21px;height:21px;transition:transform .2s ease;}
+.tabbar a.active{color:var(--kumkum-600);}
+.tabbar a.active svg{transform:translateY(-2px);}
+.tabbar a .dot{width:4px;height:4px;border-radius:50%;background:var(--kumkum-600);opacity:0;margin-top:1px;}
+.tabbar a.active .dot{opacity:1;}
+
+@media(min-width:820px){
+  :root{--tab-bar-h:0px;}
+  .tabbar{display:none;}
+  .fab-whatsapp{bottom:24px;}
+  body{padding-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="13" r="6.4" fill="#3a0f1a"/>
+        <path d="M8 14c-3 0-4.5 2.2-3.6 4.6.7 1.9 3 2.2 4.4 1" stroke="#3a0f1a" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M24 14c3 0 4.5 2.2 3.6 4.6-.7 1.9-3 2.2-4.4 1" stroke="#3a0f1a" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M16 18c0 3.4-1.6 5-1.6 5s2.6.7 3.6-1.4c.6-1.3.2-2.7-.6-3.6" stroke="#3a0f1a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="13.6" cy="12.6" r="1" fill="#f0a500"/>
+        <circle cx="18.4" cy="12.6" r="1" fill="#f0a500"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <span class="name">Sri Lakshmi Ganapathi Utsava Committee</span>
+      <span class="est">Ganeshotsav • Est. 2014</span>
+    </div>
+  </div>
+  <button class="icon-btn" id="menuOpenBtn" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+</header>
+
+<!-- SIDE MENU -->
+<div class="menu-scrim" id="menuScrim"></div>
+<aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <button class="close-x" id="menuCloseBtn" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <h3>Ganpati Bappa Morya!</h3>
+  <p style="font-size:12.5px;color:var(--ink-500);line-height:1.6;">Sri Lakshmi Ganapathi Utsava Committee</p>
+  <nav>
+    <a href="#home" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>Home</a>
+    <a href="#events" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Festival Schedule</a>
+    <a href="#committee" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c1-3.6 3.7-5.6 6.5-5.6s5.5 2 6.5 5.6"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M15.6 13.7c2.2.2 4 1.9 4.9 5.3"/></svg>Committee</a>
+    <a href="#donors" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg>Donors</a>
+    <a href="#draw" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg>Lucky Draw</a>
+    <a href="#gallery" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>Gallery</a>
+    <a href="#contact" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2l2 5-2.2 1.4a12 12 0 005.8 5.8L15 14l5 2v2a2 2 0 01-2 2C10.4 20 4 13.6 4 6z"/></svg>Contact &amp; Venue</a>
+  </nav>
+  <div class="social-row">
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
+    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 8h2V4h-2c-2.2 0-4 1.8-4 4v2H9v4h2v6h4v-6h2.6L18 10h-3V8.5c0-.4.1-.5.6-.5z"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+  </div>
+  <a class="menu-cta" href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener">Join WhatsApp Group →</a>
+</aside>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="rangoli-bg"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Ganeshotsav 2026 · 14–24 September</span>
+    <h1>Ganpati Bappa <span>Morya!</span></h1>
+    <p class="tagline">Join Sri Lakshmi Ganapathi Utsava Committee as we welcome Lord Ganesha home for eleven days of prayer, music, prasadam and community — everyone is invited.</p>
+
+    <div class="countdown" id="countdown">
+      <div class="cell"><span class="num" id="cd-days">00</span><span class="lbl">Days</span></div>
+      <div class="cell"><span class="num" id="cd-hours">00</span><span class="lbl">Hrs</span></div>
+      <div class="cell"><span class="num" id="cd-mins">00</span><span class="lbl">Min</span></div>
+      <div class="cell"><span class="num" id="cd-secs">00</span><span class="lbl">Sec</span></div>
+    </div>
+    <p class="countdown-caption">until Ganesh Sthapana — Monday, 14 September 2026</p>
+
+    <div class="hero-ctas">
+      <a href="#events" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        View Schedule
+      </a>
+      <a href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/></svg>
+        WhatsApp Group
+      </a>
+    </div>
+
+    <div class="diya-row" aria-hidden="true" id="diyaRow"></div>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 400 34" preserveAspectRatio="none" style="height:34px;">
+    <path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 V34 H0 Z" fill="#fff8ef"/>
+  </svg>
+</section>
+
+<!-- Muhurat strip -->
+<div class="strip">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+  <span>Sthapana Muhurat (Madhyahna): <b>11:02 AM – 1:31 PM</b> on 14 Sep · confirm timing with your local panchang</span>
+</div>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Who We Are</span>
+    <h2>Our GNC Committee</h2>
+    <p class="sub">A group of friends from Gandhi Chowk, Wyra that has organised Ganeshotsav with devotion, music, annadanam and mass prasadam distribution every year.</p>
+  </div>
+  <div class="about-card">
+    <p>Sri Lakshmi Ganapathi Utsava Committee brings together families of our locality to celebrate Ganesh Chaturthi with daily aarti, cultural programs, community meals and an eco-friendly visarjan procession. Every rupee donated goes directly toward the mandap, decorations, prasadam and community activities accounted for each year.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="n">13+ </span><span class="l">Years Strong</span></div>
+      <div class="stat"><span class="n">11 </span><span class="l">Days of Utsav</span></div>
+      <div class="stat"><span class="n">100+ </span><span class="l">Families Joined</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><div class="diya-row" id="diyaRow2" aria-hidden="true"></div></div>
+
+<!-- ============================================================
+     EVENTS
+     ============================================================ -->
+<section class="section" id="events">
+  <div class="section-head">
+    <span class="eyebrow">14 – 24 September 2026</span>
+    <h2>Festival Schedule</h2>
+    <p class="sub">Day-wise programme for this year's Ganeshotsav. Swipe to see all eleven days.</p>
+  </div>
+  <div class="events-scroll" id="eventsScroll"></div>
+  <p class="events-note">Times are indicative — see the noticeboard at the mandap for daily updates.</p>
+</section>
+
+<!-- ============================================================
+     COMMITTEE MEMBERS
+     ============================================================ -->
+<section class="section" id="committee">
+  <div class="section-head">
+    <span class="eyebrow">Meet The Team</span>
+    <h2>Committee Members</h2>
+    <p class="sub">The volunteers organising this year's celebrations — reach out to them for anything you need.</p>
+  </div>
+  <div class="committee-scroll" id="committeeScroll"></div>
+</section>
+
+<div class="section-divider"><div class="diya-row" id="diyaRow3" aria-hidden="true"></div></div>
+
+<!-- ============================================================
+     DONORS
+     ============================================================ -->
+<section class="section" id="donors">
+  <div class="section-head">
+    <span class="eyebrow">With Gratitude</span>
+    <h2>Our Donors</h2>
+    <p class="sub">This Utsav is made possible by the generosity of our community. Thank you.</p>
+  </div>
+  
+  <div id="donorSection"></div>
+
+  <div class="donate-cta">
+    <h4>Support This Year's Utsav</h4>
+    <p>Contributions of any size help fund decorations, prasadam, cultural programs and an eco-friendly visarjan. Contact any committee member or scan the UPI code at the mandap.</p>
+    <a href="#contact" class="btn btn-primary">Contact to Donate</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     LUCKY DRAW
+     ============================================================ -->
+<section class="section" id="draw">
+  <div class="section-head">
+    <span class="eyebrow">Visarjan Day Special</span>
+    <h2>Lucky Draw &amp; Winners</h2>
+    <p class="sub">Every donor and volunteer receives a ticket. The draw is held live on the final day of the Utsav.</p>
+  </div>
+
+  <div class="prize-row" id="prizeRow"></div>
+
+  <h3 style="font-size:19px;text-align:center;margin-top:8px;color:var(--ink-900);">Last Year's Winners</h3>
+  <div class="winners-grid" id="winnersGrid"></div>
+  <p class="draw-note">Draw is conducted transparently in front of all attendees on the visarjan day. Ticket numbers are announced at the mandap and on our WhatsApp group. Committee decision is final.</p>
+</section>
+
+<div class="section-divider"><div class="diya-row" id="diyaRow4" aria-hidden="true"></div></div>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section class="section" id="gallery">
+  <div class="section-head">
+    <span class="eyebrow">Moments</span>
+    <h2>Gallery</h2>
+    <p class="sub">Highlights from past celebrations. Tap a tile to view.</p>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow">Good to Know</span>
+    <h2>Common Questions</h2>
+  </div>
+  <div id="faqList"></div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="eyebrow">Visit Us</span>
+    <h2>Venue &amp; Contact</h2>
+  </div>
+  <div class="contact-card">
+    <div class="contact-row">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2l2 5-2.2 1.4a12 12 0 005.8 5.8L15 14l5 2v2a2 2 0 01-2 2C10.4 20 4 13.6 4 6z"/></svg></div>
+      <div><div class="tt">Phone</div><div class="vv">+91 77318 24240</div></div>
+    </div>
+    <div class="contact-row">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+      <div><div class="tt">Email</div><div class="vv">sumanthdosapati3@gmail.com</div></div>
+    </div>
+    <div class="contact-row">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11.5A7 7 0 105 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+      <div><div class="tt">Mandap Address</div><div class="vv">Sri Lakshmi Ganapathi Utsava Committee Mandap, Gandhi Chowk, Wyra – 507165</div></div>
+    </div>
+    <div class="map-embed">
+      <iframe src="https://maps.google.com/maps?q=Gandhi+Chowk+Wyra+507165&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" loading="lazy" title="Mandap location map"></iframe>
+    </div>
+  </div>
+
+  <div class="social-strip">
+    <a href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm4.5 12.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/></svg></a>
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
+    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 8h2V4h-2c-2.2 0-4 1.8-4 4v2H9v4h2v6h4v-6h2.6L18 10h-3V8.5c0-.4.1-.5.6-.5z"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <span class="fname">ॐ श्री गणेशाय नमः</span>
+  Sri Lakshmi Ganapathi Utsava Committee<br/>
+  Ganeshotsav 2026 · Made by Sumanth Dosapati<br/>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-box" id="lightboxBox"></div>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+</div>
+
+<!-- Floating WhatsApp -->
+<a class="fab-whatsapp" href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener" aria-label="Join WhatsApp group">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm4.5 12.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<!-- Bottom tab bar -->
+<nav class="tabbar" id="tabbar">
+  <a href="#home" data-target="home" class="active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>
+    Home<span class="dot"></span>
+  </a>
+  <a href="#events" data-target="events">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    Events<span class="dot"></span>
+  </a>
+  <a href="#donors" data-target="donors">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg>
+    Donors<span class="dot"></span>
+  </a>
+  <a href="#draw" data-target="draw">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg>
+    Draw<span class="dot"></span>
+  </a>
+  <a href="#gallery" data-target="gallery">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>
+    Gallery<span class="dot"></span>
+  </a>
+</nav>
+
+<script>
+
+const SHEET_API = "https://script.google.com/macros/s/AKfycbxn56dYNZfPG4CcWGwDmIx4kmkUK19m__zN17wfWJBtZwMgr0DO6DX3Q4U7GIA2C82A/exec";
+
+let DATA = {};
+
+/* ---------- Countdown ---------- */
+function startCountdown(){
+  const target = new Date(DATA.festival.sthapanaISO).getTime();
+  const els = {
+    d: document.getElementById('cd-days'),
+    h: document.getElementById('cd-hours'),
+    m: document.getElementById('cd-mins'),
+    s: document.getElementById('cd-secs')
+  };
+  function tick(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    els.d.textContent = String(d).padStart(2,'0');
+    els.h.textContent = String(h).padStart(2,'0');
+    els.m.textContent = String(m).padStart(2,'0');
+    els.s.textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ---------- Diya row SVG generator (signature motif) ---------- */
+function diyaSVG(){
+  return `<svg viewBox="0 0 40 34" width="100%" xmlns="http://www.w3.org/2000/svg">
+    <ellipse class="flame" cx="20" cy="10" rx="4.4" ry="7" fill="#ffc94d"/>
+    <ellipse class="flame" cx="20" cy="11.5" rx="2.3" ry="4" fill="#ff8a3d"/>
+    <path d="M4 20c0 7 7 11 16 11s16-4 16-11c0-2-2-3-4-2-3 1.4-7 2.4-12 2.4S9 19.4 6 18c-2-1-2 0-2 2z" fill="#f0a500"/>
+    <ellipse cx="20" cy="19.6" rx="16" ry="3.4" fill="#ffdb84"/>
+  </svg>`;
+}
+function fillDiyaRows(){
+  ['diyaRow','diyaRow2','diyaRow3','diyaRow4'].forEach(id=>{
+    const row = document.getElementById(id);
+    if(!row) return;
+    let html = '';
+    for(let i=0;i<9;i++){ html += `<div class="diya">${diyaSVG()}</div>`; }
+    row.innerHTML = html;
+  });
+}
+
+/* ---------- Icon helpers ---------- */
+const clockIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>`;
+const photoIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>`;
+const plusIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
+
+function initials(name){
+  return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+}
+function todayKey(){
+  const t = new Date();
+  return t.toISOString().slice(5,10); // MM-DD, rough check
+}
+
+/* ---------- Render Events ---------- */
+function renderEvents(){
+  const wrap = document.getElementById('eventsScroll');
+  wrap.innerHTML = DATA.events.map((e,i)=>`
+    <div class="day-card">
+      <span class="day-badge">DAY ${e.day}</span>
+      <h4>${e.title}</h4>
+      <div class="date">${e.date}</div>
+      <p class="desc">${e.desc}</p>
+      <div class="time">${clockIcon}${e.time}</div>
+    </div>
+  `).join('');
+}
+
+/* ---------- Render Committee ---------- */
+function renderCommittee(){
+  const wrap = document.getElementById('committeeScroll');
+  wrap.innerHTML = DATA.committee.map(m=>`
+    <div class="member-card">
+      <div class="avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${initials(m.name)}</div>
+      <div class="mname">${m.name}</div>
+    </div>
+  `).join('');
+}
+
+/* ---------- Render Donors ---------- */
+function renderDonors(){
+  const wrap = document.getElementById('donorSection');
+  
+  // Generating identical duplicated chunks for the seamless CSS marquee loop 
+  const marqueeContent = DATA.donors.others.map(n=>`<span class="marquee-chip">${n}</span>`).join('');
+  
+  wrap.innerHTML = `
+    <div class="idol-donor">
+      <h4>Idol Donor</h4>
+      <div class="idol-donor-name">${DATA.donors.idol}</div>
+    </div>
+    <div class="donors-marquee-container">
+      <div class="donors-marquee">
+        ${marqueeContent}
+        ${marqueeContent}
+      </div>
+    </div>
+  `;
+}
+
+/* ---------- Render Prizes & Winners ---------- */
+function renderDraw(){
+  document.getElementById('prizeRow').innerHTML = DATA.prizes.map(p=>`
+    <div class="prize-card">
+      <div class="rank">${p.rank}</div>
+      <div class="pname">${p.name}</div>
+    </div>
+  `).join('');
+  document.getElementById('winnersGrid').innerHTML = DATA.winners.map(w=>`
+    <div class="winner-card">
+      <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(w.name)}</div>
+      <div>
+        <div class="wname">${w.name}</div>
+        <div class="wprize">${w.prize}</div>
+        <div class="wticket">Ticket ${w.ticket}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ---------- Render Gallery ---------- */
+function renderGallery(){
+  const wrap = document.getElementById('galleryGrid');
+  wrap.innerHTML = DATA.gallery.map((cap,i)=>`
+    <div class="gallery-tile" data-cap="${cap}" tabindex="0" role="button" aria-label="View ${cap} photo">
+      <div class="ph">${photoIcon}<span style="font-size:9.5px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">Add Photo</span></div>
+      <div class="cap">${cap}</div>
+    </div>
+  `).join('');
+  wrap.querySelectorAll('.gallery-tile').forEach(tile=>{
+    tile.addEventListener('click', ()=>openLightbox(tile.dataset.cap, tile.querySelector('.ph').style.background));
+    tile.addEventListener('keypress', (e)=>{ if(e.key==='Enter') tile.click(); });
+  });
+}
+function openLightbox(cap, bg){
+  const box = document.getElementById('lightboxBox');
+  box.style.background = getComputedStyle(document.querySelector('.gallery-tile .ph')).background;
+  box.innerHTML = `${photoIcon.replace('width="24"','width="40"')}<div class="cap">${cap}</div>`;
+  box.style.display='flex';box.style.flexDirection='column';box.style.alignItems='center';box.style.justifyContent='center';box.style.color='rgba(255,255,255,0.85)';
+  document.getElementById('lightbox').classList.add('open');
+}
+document.getElementById('lightboxClose').addEventListener('click', ()=>{
+  document.getElementById('lightbox').classList.remove('open');
+});
+document.getElementById('lightbox').addEventListener('click', (e)=>{
+  if(e.target.id==='lightbox') e.currentTarget.classList.remove('open');
+});
+
+/* ---------- Render FAQ ---------- */
+function renderFaq(){
+  const wrap = document.getElementById('faqList');
+  wrap.innerHTML = DATA.faqs.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-q" data-i="${i}">${f.q}${plusIcon}</button>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+    </div>
+  `).join('');
+  wrap.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      wrap.querySelectorAll('.faq-item').forEach(fi=>fi.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+}
+
+/* ---------- Side menu ---------- */
+const sideMenu = document.getElementById('sideMenu');
+const menuScrim = document.getElementById('menuScrim');
+function openMenu(){ sideMenu.classList.add('open'); menuScrim.classList.add('open'); sideMenu.setAttribute('aria-hidden','false'); }
+function closeMenu(){ sideMenu.classList.remove('open'); menuScrim.classList.remove('open'); sideMenu.setAttribute('aria-hidden','true'); }
+document.getElementById('menuOpenBtn').addEventListener('click', openMenu);
+document.getElementById('menuCloseBtn').addEventListener('click', closeMenu);
+menuScrim.addEventListener('click', closeMenu);
+document.querySelectorAll('.menu-link').forEach(a=>a.addEventListener('click', closeMenu));
+
+/* ---------- Bottom tab active state via IntersectionObserver ---------- */
+function initTabbar(){
+  const tabs = document.querySelectorAll('.tabbar a');
+  const sections = ['home','events','donors','draw','gallery'].map(id=>document.getElementById(id));
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        tabs.forEach(t=>t.classList.toggle('active', t.dataset.target===id));
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+  sections.forEach(s=>{ if(s) obs.observe(s); });
+}
+
+
+/* ---------- Load Google Sheets Data ---------- */
+async function loadSheetData() {
+  try {
+    const response = await fetch(SHEET_API);
+
+    if (!response.ok) {
+      throw new Error(`Google Sheets API returned HTTP ${response.status}`);
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes("application/json")) {
+      const body = await response.text();
+      throw new Error(
+        `Expected JSON from Google Sheets API, but received ${contentType || "unknown content type"}. ` +
+        `Response starts with: ${body.slice(0, 200)}`
+      );
+    }
+
+    const json = await response.json();
+
+    if (!json || typeof json !== "object") {
+      throw new Error("Google Sheets API returned invalid JSON.");
+    }
+
+    DATA = json;
+
+    console.log("Google Sheets data loaded:", DATA);
+
+    // Render only after the Sheet data has loaded.
+    startCountdown();
+    fillDiyaRows();
+    renderEvents();
+    renderCommittee();
+    renderDonors();
+    renderDraw();
+    renderGallery();
+    renderFaq();
+    initTabbar();
+
+  } catch (error) {
+    console.error("Google Sheets error:", error);
+
+    const message = document.createElement("div");
+    message.style.cssText =
+      "position:fixed;left:12px;right:12px;bottom:82px;z-index:9999;" +
+      "padding:12px 14px;border-radius:12px;background:#26060e;color:#fff;" +
+      "font:500 12px/1.5 Poppins,system-ui,sans-serif;" +
+      "box-shadow:0 8px 24px rgba(0,0,0,.25);";
+    message.textContent =
+      "Unable to load the latest festival data. Please refresh the page.";
+    document.body.appendChild(message);
+  }
+}
+
+/* ---------- Init ---------- */
+document.addEventListener("DOMContentLoaded", loadSheetData);
+
+</script>
+</body>
+</html>
