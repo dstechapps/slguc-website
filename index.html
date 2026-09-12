@@ -165,24 +165,6 @@ p{margin:0;}
 }
 .icon-btn svg{width:19px;height:19px;}
 
-.lang-btn {
-  height: 40px;
-  padding: 0 13px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.08);
-  color: var(--gold-100);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex: none;
-}
-
-.lang-btn:active {
-  transform: scale(0.96);
-}
-
 /* ============================================================
    SIDE MENU
    ============================================================ */
@@ -776,14 +758,6 @@ footer a{color:var(--gold-400);font-weight:600;}
       <span class="est">Ganeshotsav • Est. 2014</span>
     </div>
   </div>
-  <button
-  class="lang-btn"
-  id="languageBtn"
-  type="button"
-  aria-label="Change language"
->
-  <span id="languageLabel">తెలుగు</span>
-</button>
   <button class="icon-btn" id="menuOpenBtn" aria-label="Open menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
   </button>
@@ -1024,15 +998,15 @@ footer a{color:var(--gold-400);font-weight:600;}
 <nav class="tabbar" id="tabbar">
   <a href="#home" data-target="home" class="active">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>
-    <span data-i18n="home">Home</span><span class="dot"></span>
+    Home<span class="dot"></span>
   </a>
   <a href="#events" data-target="events">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-    <span data-i18n="events">Events</span><span class="dot"></span>
+    Events<span class="dot"></span>
   </a>
   <a href="#donors" data-target="donors">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg>
-    <span data-i18n="donors">Donors</span><span class="dot"></span>
+    Donors<span class="dot"></span>
   </a>
   <a href="#draw" data-target="draw">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg>
@@ -1052,13 +1026,6 @@ footer a{color:var(--gold-400);font-weight:600;}
 let DATA = {};
 
 const SHEET_API = "https://script.google.com/macros/s/AKfycbxn56dYNZfPG4CcWGwDmIx4kmkUK19m__zN17wfWJBtZwMgr0DO6DX3Q4U7GIA2C82A/exec";
-
-const IS_V2 = new URLSearchParams(window.location.search).get("v") === "2";
-
-let currentLanguage =
-  IS_V2
-    ? (localStorage.getItem("gncLanguage") || "en")
-    : "en";
 
 /* ---------- Countdown ---------- */
 function startCountdown(){
@@ -1117,190 +1084,15 @@ function todayKey(){
   return t.toISOString().slice(5,10); // MM-DD, rough check
 }
 
-   /* ---------- V2 Language Support ---------- */
-
-const UI_TEXT = {
-
-  en: {
-    languageButton: "తెలుగు",
-
-    home: "Home",
-    events: "Events",
-    donors: "Donors",
-    draw: "Draw",
-    gallery: "Gallery",
-
-    festivalSchedule: "Festival Schedule",
-    committee: "Committee",
-    luckyDraw: "Lucky Draw",
-    contactVenue: "Contact & Venue",
-
-    viewSchedule: "View Schedule",
-    whatsappGroup: "WhatsApp Group",
-
-    whoWeAre: "Who We Are",
-    ourCommittee: "Our GNC Committee",
-    meetTeam: "Meet The Team",
-    committeeMembers: "Committee Members",
-
-    withGratitude: "With Gratitude",
-    ourDonors: "Our Donors",
-
-    moments: "Moments",
-    galleryTitle: "Gallery",
-
-    goodToKnow: "Good to Know",
-    commonQuestions: "Common Questions",
-
-    visitUs: "Visit Us",
-    venueContact: "Venue & Contact",
-
-    idolDonor: "Idol Donor",
-    addPhoto: "Add Photo",
-    ticket: "Ticket",
-
-    days: "Days",
-    hrs: "Hrs",
-    min: "Min",
-    sec: "Sec"
-  },
-
-  te: {
-    languageButton: "English",
-
-    home: "హోమ్",
-    events: "కార్యక్రమాలు",
-    donors: "దాతలు",
-    draw: "డ్రా",
-    gallery: "గ్యాలరీ",
-
-    festivalSchedule: "పండుగ కార్యక్రమాలు",
-    committee: "కమిటీ",
-    luckyDraw: "లక్కీ డ్రా",
-    contactVenue: "సంప్రదించండి & వేదిక",
-
-    viewSchedule: "కార్యక్రమాలు చూడండి",
-    whatsappGroup: "వాట్సాప్ గ్రూప్",
-
-    whoWeAre: "మా గురించి",
-    ourCommittee: "మా GNC కమిటీ",
-    meetTeam: "మా బృందాన్ని కలవండి",
-    committeeMembers: "కమిటీ సభ్యులు",
-
-    withGratitude: "కృతజ్ఞతలతో",
-    ourDonors: "మా దాతలు",
-
-    moments: "జ్ఞాపకాలు",
-    galleryTitle: "గ్యాలరీ",
-
-    goodToKnow: "తెలుసుకోవాల్సిన విషయాలు",
-    commonQuestions: "సాధారణ ప్రశ్నలు",
-
-    visitUs: "మమ్మల్ని సందర్శించండి",
-    venueContact: "వేదిక & సంప్రదింపు",
-
-    idolDonor: "విగ్రహ దాత",
-    addPhoto: "ఫోటో జోడించండి",
-    ticket: "టికెట్",
-
-    days: "రోజులు",
-    hrs: "గం.",
-    min: "ని.",
-    sec: "సె."
-  }
-};
-
-
-function t(key) {
-
-  if (!IS_V2) {
-    return UI_TEXT.en[key] || key;
-  }
-
-  return UI_TEXT[currentLanguage][key]
-    || UI_TEXT.en[key]
-    || key;
-}
-
-
-function localized(item, field) {
-
-  if (
-    IS_V2 &&
-    currentLanguage === "te" &&
-    item &&
-    item[field + "_te"] &&
-    String(item[field + "_te"]).trim() !== ""
-  ) {
-    return item[field + "_te"];
-  }
-
-  return item && item[field] != null
-    ? item[field]
-    : "";
-}
-
-
-function setStaticText() {
-
-  if (!IS_V2) return;
-
-  document.querySelectorAll("[data-i18n]").forEach(element => {
-
-    const key = element.getAttribute("data-i18n");
-
-    if (UI_TEXT[currentLanguage][key]) {
-      element.textContent = UI_TEXT[currentLanguage][key];
-    }
-
-  });
-
-  const languageLabel =
-    document.getElementById("languageLabel");
-
-  if (languageLabel) {
-    languageLabel.textContent =
-      UI_TEXT[currentLanguage].languageButton;
-  }
-
-  document.documentElement.lang =
-    currentLanguage === "te" ? "te" : "en";
-}
-
-
-function switchLanguage() {
-
-  if (!IS_V2) return;
-
-  currentLanguage =
-    currentLanguage === "en"
-      ? "te"
-      : "en";
-
-  localStorage.setItem(
-    "gncLanguage",
-    currentLanguage
-  );
-
-  setStaticText();
-
-  renderEvents();
-  renderCommittee();
-  renderDonors();
-  renderDraw();
-  renderGallery();
-  renderFaq();
-}
-
 /* ---------- Render Events ---------- */
 function renderEvents(){
   const wrap = document.getElementById('eventsScroll');
   wrap.innerHTML = DATA.events.map((e,i)=>`
     <div class="day-card">
       <span class="day-badge">DAY ${e.day}</span>
-      <h4>${localized(e, "title")}</h4>
+      <h4>${e.title}</h4>
       <div class="date">${e.date}</div>
-      <p class="desc">${localized(e, "desc")}</p>
+      <p class="desc">${e.desc}</p>
       <div class="time">${clockIcon}${e.time}</div>
     </div>
   `).join('');
@@ -1311,40 +1103,24 @@ function renderCommittee(){
   const wrap = document.getElementById('committeeScroll');
   wrap.innerHTML = DATA.committee.map(m=>`
     <div class="member-card">
-      <div class="avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${initials(localized(m, "name"))}</div>
-      <div class="mname">${localized(m, "name")}</div>
+      <div class="avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${initials(m.name)}</div>
+      <div class="mname">${m.name}</div>
     </div>
   `).join('');
 }
 
 /* ---------- Render Donors ---------- */
 function renderDonors(){
-
   const wrap = document.getElementById('donorSection');
-
-  const marqueeContent =
-    DATA.donors.others.map((n, i) => {
-
-      const name =
-        currentLanguage === "te"
-          ? (DATA.donors.others_te?.[i] || n)
-          : n;
-
-      return `<span class="marquee-chip">${name}</span>`;
-
-    }).join('');
-
-  const idolName =
-    currentLanguage === "te"
-      ? (DATA.donors.idol_te || DATA.donors.idol)
-      : DATA.donors.idol;
-
+  
+  // Generating identical duplicated chunks for the seamless CSS marquee loop 
+  const marqueeContent = DATA.donors.others.map(n=>`<span class="marquee-chip">${n}</span>`).join('');
+  
   wrap.innerHTML = `
     <div class="idol-donor">
-      <h4>${t("idolDonor")}</h4>
-      <div class="idol-donor-name">${idolName}</div>
+      <h4>Idol Donor</h4>
+      <div class="idol-donor-name">${DATA.donors.idol}</div>
     </div>
-
     <div class="donors-marquee-container">
       <div class="donors-marquee">
         ${marqueeContent}
@@ -1354,22 +1130,21 @@ function renderDonors(){
   `;
 }
 
-   
 /* ---------- Render Prizes & Winners ---------- */
 function renderDraw(){
   document.getElementById('prizeRow').innerHTML = DATA.prizes.map(p=>`
     <div class="prize-card">
       <div class="rank">${p.rank}</div>
-      <div class="pname">${localized(p, "name")}</div>
+      <div class="pname">${p.name}</div>
     </div>
   `).join('');
   document.getElementById('winnersGrid').innerHTML = DATA.winners.map(w=>`
     <div class="winner-card">
-      <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(localized(w, "name"))}</div>
+      <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(w.name)}</div>
       <div>
-       <div class="wname">${localized(w, "name")}</div>
-       <div class="wprize">${localized(w, "prize")}</div>
-       <div class="wticket">${t("ticket")} ${w.ticket}</div>
+        <div class="wname">${w.name}</div>
+        <div class="wprize">${w.prize}</div>
+        <div class="wticket">Ticket ${w.ticket}</div>
       </div>
     </div>
   `).join('');
@@ -1377,79 +1152,39 @@ function renderDraw(){
 
 /* ---------- Render Gallery ---------- */
 function renderGallery(){
-
-  const wrap =
-    document.getElementById('galleryGrid');
-
-  wrap.innerHTML =
-    DATA.gallery.map((item, i) => {
-
-      const cap =
-        IS_V2
-          ? localized(item, "title")
-          : item;
-
-      return `
-        <div
-          class="gallery-tile"
-          data-cap="${cap}"
-          tabindex="0"
-          role="button"
-          aria-label="View ${cap} photo"
-        >
-
-          <div class="ph">
-            ${photoIcon}
-
-            <span style="
-              font-size:9.5px;
-              color:rgba(255,255,255,0.7);
-              letter-spacing:1px;
-              text-transform:uppercase;
-            ">
-              ${t("addPhoto")}
-            </span>
-
-          </div>
-
-          <div class="cap">${cap}</div>
-
-        </div>
-      `;
-
-    }).join('');
-
-  wrap.querySelectorAll('.gallery-tile')
-    .forEach(tile => {
-
-      tile.addEventListener(
-        'click',
-        () => openLightbox(
-          tile.dataset.cap,
-          tile.querySelector('.ph').style.background
-        )
-      );
-
-      tile.addEventListener(
-        'keypress',
-        (e) => {
-          if (e.key === 'Enter') {
-            tile.click();
-          }
-        }
-      );
-
-    });
+  const wrap = document.getElementById('galleryGrid');
+  wrap.innerHTML = DATA.gallery.map((cap,i)=>`
+    <div class="gallery-tile" data-cap="${cap}" tabindex="0" role="button" aria-label="View ${cap} photo">
+      <div class="ph">${photoIcon}<span style="font-size:9.5px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">Add Photo</span></div>
+      <div class="cap">${cap}</div>
+    </div>
+  `).join('');
+  wrap.querySelectorAll('.gallery-tile').forEach(tile=>{
+    tile.addEventListener('click', ()=>openLightbox(tile.dataset.cap, tile.querySelector('.ph').style.background));
+    tile.addEventListener('keypress', (e)=>{ if(e.key==='Enter') tile.click(); });
+  });
 }
+function openLightbox(cap, bg){
+  const box = document.getElementById('lightboxBox');
+  box.style.background = getComputedStyle(document.querySelector('.gallery-tile .ph')).background;
+  box.innerHTML = `${photoIcon.replace('width="24"','width="40"')}<div class="cap">${cap}</div>`;
+  box.style.display='flex';box.style.flexDirection='column';box.style.alignItems='center';box.style.justifyContent='center';box.style.color='rgba(255,255,255,0.85)';
+  document.getElementById('lightbox').classList.add('open');
+}
+document.getElementById('lightboxClose').addEventListener('click', ()=>{
+  document.getElementById('lightbox').classList.remove('open');
+});
+document.getElementById('lightbox').addEventListener('click', (e)=>{
+  if(e.target.id==='lightbox') e.currentTarget.classList.remove('open');
+});
 
-   
 /* ---------- Render FAQ ---------- */
 function renderFaq(){
   const wrap = document.getElementById('faqList');
   wrap.innerHTML = DATA.faqs.map((f,i)=>`
     <div class="faq-item" id="faq-${i}">
-      <button class="faq-q" data-i="${i}">${localized(f, "q")}${plusIcon}</button>
-      <div class="faq-a"><div class="faq-a-inner">${localized(f, "a")}</div></div>
+      <button class="faq-q" data-i="${i}">${f.q}${plusIcon}</button>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
     </div>
   `).join('');
   wrap.querySelectorAll('.faq-q').forEach(btn=>{
@@ -1507,218 +1242,18 @@ window.handleSheetData = function(data){
 }
 };
 
-/* ---------- Language ---------- */
-
-const UI_TEXT = {
-  en: {
-    languageButton: "తెలుగు",
-    home: "Home",
-    events: "Events",
-    donors: "Donors",
-    draw: "Draw",
-    gallery: "Gallery",
-
-    festivalSchedule: "Festival Schedule",
-    committee: "Committee",
-    luckyDraw: "Lucky Draw",
-    contactVenue: "Contact & Venue",
-
-    viewSchedule: "View Schedule",
-    whatsappGroup: "WhatsApp Group",
-
-    whoWeAre: "Who We Are",
-    ourCommittee: "Our GNC Committee",
-    meetTeam: "Meet The Team",
-    committeeMembers: "Committee Members",
-
-    withGratitude: "With Gratitude",
-    ourDonors: "Our Donors",
-
-    moments: "Moments",
-    galleryTitle: "Gallery",
-
-    goodToKnow: "Good to Know",
-    commonQuestions: "Common Questions",
-
-    visitUs: "Visit Us",
-    venueContact: "Venue & Contact",
-
-    days: "Days",
-    hrs: "Hrs",
-    min: "Min",
-    sec: "Sec",
-
-    idolDonor: "Idol Donor",
-    addPhoto: "Add Photo",
-    ticket: "Ticket"
-  },
-
-  te: {
-    languageButton: "English",
-    home: "హోమ్",
-    events: "ఈవెంట్స్",
-    donors: "దాతలు",
-    draw: "డ్రా",
-    gallery: "గ్యాలరీ",
-
-    festivalSchedule: "పండుగ కార్యక్రమాలు",
-    committee: "కమిటీ",
-    luckyDraw: "లక్కీ డ్రా",
-    contactVenue: "సంప్రదించండి & వేదిక",
-
-    viewSchedule: "కార్యక్రమాలు చూడండి",
-    whatsappGroup: "వాట్సాప్ గ్రూప్",
-
-    whoWeAre: "మా గురించి",
-    ourCommittee: "మా GNC కమిటీ",
-    meetTeam: "మా బృందం",
-    committeeMembers: "కమిటీ సభ్యులు",
-
-    withGratitude: "కృతజ్ఞతలతో",
-    ourDonors: "మా దాతలు",
-
-    moments: "జ్ఞాపకాలు",
-    galleryTitle: "గ్యాలరీ",
-
-    goodToKnow: "తెలుసుకోవాల్సిన విషయాలు",
-    commonQuestions: "సాధారణ ప్రశ్నలు",
-
-    visitUs: "మమ్మల్ని సందర్శించండి",
-    venueContact: "వేదిక & సంప్రదింపు",
-
-    days: "రోజులు",
-    hrs: "గం.",
-    min: "ని.",
-    sec: "సె.",
-
-    idolDonor: "విగ్రహ దాత",
-    addPhoto: "ఫోటో జోడించండి",
-    ticket: "టికెట్"
-  }
-};
-
-function t(key){
-  return UI_TEXT[currentLanguage][key] || UI_TEXT.en[key] || key;
-}
-
-function localized(item, field){
-  if(currentLanguage === "te"){
-    const teluguField = field + "_te";
-
-    if(
-      item &&
-      item[teluguField] &&
-      String(item[teluguField]).trim() !== ""
-    ){
-      return item[teluguField];
-    }
-  }
-
-  return item && item[field] != null ? item[field] : "";
-}
-
-function applyLanguageUI(){
-
-  document.documentElement.lang =
-    currentLanguage === "te" ? "te" : "en";
-
-  const languageLabel =
-    document.getElementById("languageLabel");
-
-  if(languageLabel){
-    languageLabel.textContent = t("languageButton");
-  }
-
-  /*
-   * Re-render dynamic sections using the selected language.
-   */
-  if(DATA.events) renderEvents();
-  if(DATA.committee) renderCommittee();
-  if(DATA.donors) renderDonors();
-  if(DATA.prizes || DATA.winners) renderDraw();
-  if(DATA.gallery) renderGallery();
-  if(DATA.faqs) renderFaq();
-
-  /*
-   * Persist selection.
-   */
-  localStorage.setItem("gncLanguage", currentLanguage);
-}
-
-function toggleLanguage(){
-
-  currentLanguage =
-    currentLanguage === "en" ? "te" : "en";
-
-  applyLanguageUI();
-}
-
-document
-  .getElementById("languageBtn")
-  ?.addEventListener("click", toggleLanguage);
-   
 function loadSheetData(){
-
-  const script =
-    document.createElement('script');
-
-  let url =
-    SHEET_API +
-    '?prefix=handleSheetData';
-
-  /*
-   * V2 always loads the bilingual data.
-   * V1 continues using the original endpoint.
-   */
-  if (IS_V2) {
-    url += '&version=2';
-  }
-
-  url += '&_=' + Date.now();
-
-  script.src = url;
+  const script = document.createElement('script');
+  script.src = SHEET_API + '?prefix=handleSheetData&_=' + Date.now();
   script.async = true;
-
-  console.log(
-    "Loading Google Sheets JSONP:",
-    script.src
-  );
-
+  console.log("Loading Google Sheets JSONP:", script.src);
   script.onerror = function(){
-
-    console.error(
-      "Google Sheets JSONP request failed"
-    );
-
+    console.error("Google Sheets JSONP request failed");
   };
-
   document.head.appendChild(script);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  if (IS_V2) {
-
-    setStaticText();
-
-    const languageBtn =
-      document.getElementById("languageBtn");
-
-    if (languageBtn) {
-
-      languageBtn.addEventListener(
-        "click",
-        switchLanguage
-      );
-
-    }
-
-  }
-
-  loadSheetData();
-
-});
-   
+document.addEventListener('DOMContentLoaded', loadSheetData);
 </script>
 </body>
 </html>
