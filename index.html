@@ -165,6 +165,9 @@ p{margin:0;}
 }
 .icon-btn svg{width:19px;height:19px;}
 
+.lang-btn{height:40px;padding:0 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);color:var(--gold-100);font-family:var(--font-body);font-size:11.5px;font-weight:600;white-space:nowrap;flex:none;}
+.lang-btn:active{transform:scale(.96);}
+
 /* ============================================================
    SIDE MENU
    ============================================================ */
@@ -758,9 +761,12 @@ footer a{color:var(--gold-400);font-weight:600;}
       <span class="est">Ganeshotsav • Est. 2014</span>
     </div>
   </div>
-  <button class="icon-btn" id="menuOpenBtn" aria-label="Open menu">
+  <div style="display:flex;align-items:center;gap:8px;flex:none;">
+    <button class="lang-btn" id="languageBtn" type="button" aria-label="Change language">తెలుగు</button>
+    <button class="icon-btn" id="menuOpenBtn" aria-label="Open menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-  </button>
+    </button>
+  </div>
 </header>
 
 <!-- SIDE MENU -->
@@ -772,20 +778,20 @@ footer a{color:var(--gold-400);font-weight:600;}
   <h3>Ganpati Bappa Morya!</h3>
   <p style="font-size:12.5px;color:var(--ink-500);line-height:1.6;">Sri Lakshmi Ganapathi Utsava Committee</p>
   <nav>
-    <a href="#home" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>Home</a>
-    <a href="#events" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Festival Schedule</a>
-    <a href="#committee" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c1-3.6 3.7-5.6 6.5-5.6s5.5 2 6.5 5.6"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M15.6 13.7c2.2.2 4 1.9 4.9 5.3"/></svg>Committee</a>
-    <a href="#donors" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg>Donors</a>
-    <a href="#draw" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg>Lucky Draw</a>
-    <a href="#gallery" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>Gallery</a>
-    <a href="#contact" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2l2 5-2.2 1.4a12 12 0 005.8 5.8L15 14l5 2v2a2 2 0 01-2 2C10.4 20 4 13.6 4 6z"/></svg>Contact &amp; Venue</a>
+    <a href="#home" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg><span data-i18n="home">Home</span></a>
+    <a href="#events" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-i18n="festivalSchedule">Festival Schedule</span></a>
+    <a href="#committee" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c1-3.6 3.7-5.6 6.5-5.6s5.5 2 6.5 5.6"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M15.6 13.7c2.2.2 4 1.9 4.9 5.3"/></svg><span data-i18n="committee">Committee</span></a>
+    <a href="#donors" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg><span data-i18n="donors">Donors</span></a>
+    <a href="#draw" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg><span data-i18n="luckyDraw">Lucky Draw</span></a>
+    <a href="#gallery" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg><span data-i18n="gallery">Gallery</span></a>
+    <a href="#contact" class="menu-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2l2 5-2.2 1.4a12 12 0 005.8 5.8L15 14l5 2v2a2 2 0 01-2 2C10.4 20 4 13.6 4 6z"/></svg><span data-i18n="contactVenue">Contact &amp; Venue</span></a>
   </nav>
   <div class="social-row">
     <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
     <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 8h2V4h-2c-2.2 0-4 1.8-4 4v2H9v4h2v6h4v-6h2.6L18 10h-3V8.5c0-.4.1-.5.6-.5z"/></svg></a>
     <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
   </div>
-  <a class="menu-cta" href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener">Join WhatsApp Group →</a>
+  <a class="menu-cta" href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener">Join <span data-i18n="whatsappGroup">WhatsApp Group</span> →</a>
 </aside>
 
 <!-- ============================================================
@@ -799,21 +805,21 @@ footer a{color:var(--gold-400);font-weight:600;}
     <p class="tagline">Join Sri Lakshmi Ganapathi Utsava Committee as we welcome Lord Ganesha home for eleven days of prayer, music, prasadam and community — everyone is invited.</p>
 
     <div class="countdown" id="countdown">
-      <div class="cell"><span class="num" id="cd-days">00</span><span class="lbl">Days</span></div>
-      <div class="cell"><span class="num" id="cd-hours">00</span><span class="lbl">Hrs</span></div>
-      <div class="cell"><span class="num" id="cd-mins">00</span><span class="lbl">Min</span></div>
-      <div class="cell"><span class="num" id="cd-secs">00</span><span class="lbl">Sec</span></div>
+      <div class="cell"><span class="num" id="cd-days">00</span><span class="lbl" data-i18n="days">Days</span></div>
+      <div class="cell"><span class="num" id="cd-hours">00</span><span class="lbl" data-i18n="hrs">Hrs</span></div>
+      <div class="cell"><span class="num" id="cd-mins">00</span><span class="lbl" data-i18n="min">Min</span></div>
+      <div class="cell"><span class="num" id="cd-secs">00</span><span class="lbl" data-i18n="sec">Sec</span></div>
     </div>
     <p class="countdown-caption">until Ganesh Sthapana — Monday, 14 September 2026</p>
 
     <div class="hero-ctas">
       <a href="#events" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-        View Schedule
+        <span data-i18n="viewSchedule">View Schedule</span>
       </a>
       <a href="https://chat.whatsapp.com/LNeusDIjZcW46nRHZMGvvD?s=cl&p=a&mlu=0" target="_blank" rel="noopener" class="btn btn-whatsapp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/></svg>
-        WhatsApp Group
+        <span data-i18n="whatsappGroup">WhatsApp Group</span>
       </a>
     </div>
 
@@ -836,8 +842,8 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section">
   <div class="section-head">
-    <span class="eyebrow">Who We Are</span>
-    <h2>Our GNC Committee</h2>
+    <span class="eyebrow" data-i18n="whoWeAre">Who We Are</span>
+    <h2 data-i18n="ourCommittee">Our GNC Committee</h2>
     <p class="sub">A group of friends from Gandhi Chowk, Wyra that has organised Ganeshotsav with devotion, music, annadanam and mass prasadam distribution every year.</p>
   </div>
   <div class="about-card">
@@ -870,8 +876,8 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section" id="committee">
   <div class="section-head">
-    <span class="eyebrow">Meet The Team</span>
-    <h2>Committee Members</h2>
+    <span class="eyebrow" data-i18n="meetTeam">Meet The Team</span>
+    <h2 data-i18n="committeeMembers">Committee Members</h2>
     <p class="sub">The volunteers organising this year's celebrations — reach out to them for anything you need.</p>
   </div>
   <div class="committee-scroll" id="committeeScroll"></div>
@@ -884,17 +890,17 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section" id="donors">
   <div class="section-head">
-    <span class="eyebrow">With Gratitude</span>
-    <h2>Our Donors</h2>
+    <span class="eyebrow" data-i18n="withGratitude">With Gratitude</span>
+    <h2 data-i18n="ourDonors">Our Donors</h2>
     <p class="sub">This Utsav is made possible by the generosity of our community. Thank you.</p>
   </div>
   
   <div id="donorSection"></div>
 
   <div class="donate-cta">
-    <h4>Support This Year's Utsav</h4>
+    <h4><span data-i18n="supportUtsav">Support This Year's Utsav</span></h4>
     <p>Contributions of any size help fund decorations, prasadam, cultural programs and an eco-friendly visarjan. Contact any committee member or scan the UPI code at the mandap.</p>
-    <a href="#contact" class="btn btn-primary">Contact to Donate</a>
+    <a href="#contact" class="btn btn-primary"><span data-i18n="contactToDonate">Contact to Donate</span></a>
   </div>
 </section>
 
@@ -903,14 +909,14 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section" id="draw">
   <div class="section-head">
-    <span class="eyebrow">Visarjan Day Special</span>
-    <h2>Lucky Draw &amp; Winners</h2>
+    <span class="eyebrow" data-i18n="visarjanDaySpecial">Visarjan Day Special</span>
+    <h2 data-i18n="luckyDrawWinners">Lucky Draw &amp; Winners</h2>
     <p class="sub">Every donor and volunteer receives a ticket. The draw is held live on the final day of the Utsav.</p>
   </div>
 
   <div class="prize-row" id="prizeRow"></div>
 
-  <h3 style="font-size:19px;text-align:center;margin-top:8px;color:var(--ink-900);">Last Year's Winners</h3>
+  <h3 style="font-size:19px;text-align:center;margin-top:8px;color:var(--ink-900);"><span data-i18n="lastYearsWinners">Last Year's Winners</span></h3>
   <div class="winners-grid" id="winnersGrid"></div>
   <p class="draw-note">Draw is conducted transparently in front of all attendees on the visarjan day. Ticket numbers are announced at the mandap and on our WhatsApp group. Committee decision is final.</p>
 </section>
@@ -922,8 +928,8 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section" id="gallery">
   <div class="section-head">
-    <span class="eyebrow">Moments</span>
-    <h2>Gallery</h2>
+    <span class="eyebrow" data-i18n="moments">Moments</span>
+    <h2 data-i18n="gallery">Gallery</h2>
     <p class="sub">Highlights from past celebrations. Tap a tile to view.</p>
   </div>
   <div class="gallery-grid" id="galleryGrid"></div>
@@ -934,8 +940,8 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section">
   <div class="section-head">
-    <span class="eyebrow">Good to Know</span>
-    <h2>Common Questions</h2>
+    <span class="eyebrow" data-i18n="goodToKnow">Good to Know</span>
+    <h2 data-i18n="commonQuestions">Common Questions</h2>
   </div>
   <div id="faqList"></div>
 </section>
@@ -945,8 +951,8 @@ footer a{color:var(--gold-400);font-weight:600;}
      ============================================================ -->
 <section class="section" id="contact">
   <div class="section-head">
-    <span class="eyebrow">Visit Us</span>
-    <h2>Venue &amp; Contact</h2>
+    <span class="eyebrow" data-i18n="visitUs">Visit Us</span>
+    <h2 data-i18n="venueContact">Venue &amp; Contact</h2>
   </div>
   <div class="contact-card">
     <div class="contact-row">
@@ -998,262 +1004,63 @@ footer a{color:var(--gold-400);font-weight:600;}
 <nav class="tabbar" id="tabbar">
   <a href="#home" data-target="home" class="active">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>
-    Home<span class="dot"></span>
+    <span data-i18n="home">Home</span><span class="dot"></span>
   </a>
   <a href="#events" data-target="events">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-    Events<span class="dot"></span>
+    <span data-i18n="events">Events</span><span class="dot"></span>
   </a>
   <a href="#donors" data-target="donors">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8 2.2 4.5 5.7 4c2.1-.3 4 .7 6.3 3 2.3-2.3 4.2-3.3 6.3-3 3.5.5 5.3 4 3.7 7.8C19.5 16.4 12 21 12 21z"/></svg>
-    Donors<span class="dot"></span>
+    <span data-i18n="donors">Donors</span><span class="dot"></span>
   </a>
   <a href="#draw" data-target="draw">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M12 8v4l2.4 2.4"/></svg>
-    Draw<span class="dot"></span>
+    <span data-i18n="draw">Draw</span><span class="dot"></span>
   </a>
   <a href="#gallery" data-target="gallery">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>
-    Gallery<span class="dot"></span>
+    <span data-i18n="gallery">Gallery</span><span class="dot"></span>
   </a>
 </nav>
 
 <script>
-/* ============================================================
-   EDIT ME — all editable content lives in this DATA object.
-   Update names, dates, phone numbers, links, etc. here.
-   ============================================================ */
-let DATA = {};
-
 const SHEET_API = "https://script.google.com/macros/s/AKfycbxn56dYNZfPG4CcWGwDmIx4kmkUK19m__zN17wfWJBtZwMgr0DO6DX3Q4U7GIA2C82A/exec";
+const IS_V2 = true;
+let currentLanguage = localStorage.getItem('gncLanguage') || 'en';
+let DATA = {};
+let sheetDataLoaded = false;
 
-/* ---------- Countdown ---------- */
-function startCountdown(){
-  const target = new Date(DATA.festival.sthapanaISO).getTime();
-  const els = {
-    d: document.getElementById('cd-days'),
-    h: document.getElementById('cd-hours'),
-    m: document.getElementById('cd-mins'),
-    s: document.getElementById('cd-secs')
-  };
-  function tick(){
-    const now = Date.now();
-    let diff = Math.max(0, target - now);
-    const d = Math.floor(diff/86400000); diff -= d*86400000;
-    const h = Math.floor(diff/3600000); diff -= h*3600000;
-    const m = Math.floor(diff/60000); diff -= m*60000;
-    const s = Math.floor(diff/1000);
-    els.d.textContent = String(d).padStart(2,'0');
-    els.h.textContent = String(h).padStart(2,'0');
-    els.m.textContent = String(m).padStart(2,'0');
-    els.s.textContent = String(s).padStart(2,'0');
-  }
-  tick();
-  setInterval(tick, 1000);
-}
-
-/* ---------- Diya row SVG generator (signature motif) ---------- */
-function diyaSVG(){
-  return `<svg viewBox="0 0 40 34" width="100%" xmlns="http://www.w3.org/2000/svg">
-    <ellipse class="flame" cx="20" cy="10" rx="4.4" ry="7" fill="#ffc94d"/>
-    <ellipse class="flame" cx="20" cy="11.5" rx="2.3" ry="4" fill="#ff8a3d"/>
-    <path d="M4 20c0 7 7 11 16 11s16-4 16-11c0-2-2-3-4-2-3 1.4-7 2.4-12 2.4S9 19.4 6 18c-2-1-2 0-2 2z" fill="#f0a500"/>
-    <ellipse cx="20" cy="19.6" rx="16" ry="3.4" fill="#ffdb84"/>
-  </svg>`;
-}
-function fillDiyaRows(){
-  ['diyaRow','diyaRow2','diyaRow3','diyaRow4'].forEach(id=>{
-    const row = document.getElementById(id);
-    if(!row) return;
-    let html = '';
-    for(let i=0;i<9;i++){ html += `<div class="diya">${diyaSVG()}</div>`; }
-    row.innerHTML = html;
-  });
-}
-
-/* ---------- Icon helpers ---------- */
-const clockIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>`;
-const photoIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>`;
-const plusIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
-
-function initials(name){
-  return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
-}
-function todayKey(){
-  const t = new Date();
-  return t.toISOString().slice(5,10); // MM-DD, rough check
-}
-
-/* ---------- Render Events ---------- */
-function renderEvents(){
-  const wrap = document.getElementById('eventsScroll');
-  wrap.innerHTML = DATA.events.map((e,i)=>`
-    <div class="day-card">
-      <span class="day-badge">DAY ${e.day}</span>
-      <h4>${e.title}</h4>
-      <div class="date">${e.date}</div>
-      <p class="desc">${e.desc}</p>
-      <div class="time">${clockIcon}${e.time}</div>
-    </div>
-  `).join('');
-}
-
-/* ---------- Render Committee ---------- */
-function renderCommittee(){
-  const wrap = document.getElementById('committeeScroll');
-  wrap.innerHTML = DATA.committee.map(m=>`
-    <div class="member-card">
-      <div class="avatar" style="background:linear-gradient(135deg,${m.color[0]},${m.color[1]})">${initials(m.name)}</div>
-      <div class="mname">${m.name}</div>
-    </div>
-  `).join('');
-}
-
-/* ---------- Render Donors ---------- */
-function renderDonors(){
-  const wrap = document.getElementById('donorSection');
-  
-  // Generating identical duplicated chunks for the seamless CSS marquee loop 
-  const marqueeContent = DATA.donors.others.map(n=>`<span class="marquee-chip">${n}</span>`).join('');
-  
-  wrap.innerHTML = `
-    <div class="idol-donor">
-      <h4>Idol Donor</h4>
-      <div class="idol-donor-name">${DATA.donors.idol}</div>
-    </div>
-    <div class="donors-marquee-container">
-      <div class="donors-marquee">
-        ${marqueeContent}
-        ${marqueeContent}
-      </div>
-    </div>
-  `;
-}
-
-/* ---------- Render Prizes & Winners ---------- */
-function renderDraw(){
-  document.getElementById('prizeRow').innerHTML = DATA.prizes.map(p=>`
-    <div class="prize-card">
-      <div class="rank">${p.rank}</div>
-      <div class="pname">${p.name}</div>
-    </div>
-  `).join('');
-  document.getElementById('winnersGrid').innerHTML = DATA.winners.map(w=>`
-    <div class="winner-card">
-      <div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(w.name)}</div>
-      <div>
-        <div class="wname">${w.name}</div>
-        <div class="wprize">${w.prize}</div>
-        <div class="wticket">Ticket ${w.ticket}</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-/* ---------- Render Gallery ---------- */
-function renderGallery(){
-  const wrap = document.getElementById('galleryGrid');
-  wrap.innerHTML = DATA.gallery.map((cap,i)=>`
-    <div class="gallery-tile" data-cap="${cap}" tabindex="0" role="button" aria-label="View ${cap} photo">
-      <div class="ph">${photoIcon}<span style="font-size:9.5px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">Add Photo</span></div>
-      <div class="cap">${cap}</div>
-    </div>
-  `).join('');
-  wrap.querySelectorAll('.gallery-tile').forEach(tile=>{
-    tile.addEventListener('click', ()=>openLightbox(tile.dataset.cap, tile.querySelector('.ph').style.background));
-    tile.addEventListener('keypress', (e)=>{ if(e.key==='Enter') tile.click(); });
-  });
-}
-function openLightbox(cap, bg){
-  const box = document.getElementById('lightboxBox');
-  box.style.background = getComputedStyle(document.querySelector('.gallery-tile .ph')).background;
-  box.innerHTML = `${photoIcon.replace('width="24"','width="40"')}<div class="cap">${cap}</div>`;
-  box.style.display='flex';box.style.flexDirection='column';box.style.alignItems='center';box.style.justifyContent='center';box.style.color='rgba(255,255,255,0.85)';
-  document.getElementById('lightbox').classList.add('open');
-}
-document.getElementById('lightboxClose').addEventListener('click', ()=>{
-  document.getElementById('lightbox').classList.remove('open');
-});
-document.getElementById('lightbox').addEventListener('click', (e)=>{
-  if(e.target.id==='lightbox') e.currentTarget.classList.remove('open');
-});
-
-/* ---------- Render FAQ ---------- */
-function renderFaq(){
-  const wrap = document.getElementById('faqList');
-  wrap.innerHTML = DATA.faqs.map((f,i)=>`
-    <div class="faq-item" id="faq-${i}">
-      <button class="faq-q" data-i="${i}">${f.q}${plusIcon}</button>
-      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
-    </div>
-  `).join('');
-  wrap.querySelectorAll('.faq-q').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const item = btn.closest('.faq-item');
-      const wasOpen = item.classList.contains('open');
-      wrap.querySelectorAll('.faq-item').forEach(fi=>fi.classList.remove('open'));
-      if(!wasOpen) item.classList.add('open');
-    });
-  });
-}
-
-/* ---------- Side menu ---------- */
-const sideMenu = document.getElementById('sideMenu');
-const menuScrim = document.getElementById('menuScrim');
-function openMenu(){ sideMenu.classList.add('open'); menuScrim.classList.add('open'); sideMenu.setAttribute('aria-hidden','false'); }
-function closeMenu(){ sideMenu.classList.remove('open'); menuScrim.classList.remove('open'); sideMenu.setAttribute('aria-hidden','true'); }
-document.getElementById('menuOpenBtn').addEventListener('click', openMenu);
-document.getElementById('menuCloseBtn').addEventListener('click', closeMenu);
-menuScrim.addEventListener('click', closeMenu);
-document.querySelectorAll('.menu-link').forEach(a=>a.addEventListener('click', closeMenu));
-
-/* ---------- Bottom tab active state via IntersectionObserver ---------- */
-function initTabbar(){
-  const tabs = document.querySelectorAll('.tabbar a');
-  const sections = ['home','events','donors','draw','gallery'].map(id=>document.getElementById(id));
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        const id = entry.target.id;
-        tabs.forEach(t=>t.classList.toggle('active', t.dataset.target===id));
-      }
-    });
-  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
-  sections.forEach(s=>{ if(s) obs.observe(s); });
-}
-
-/* ---------- Init ---------- */
-window.handleSheetData = function(data){
-  console.log("Google Sheets JSONP callback executed successfully:", data);
-  DATA = data;
-
-  startCountdown();
-  fillDiyaRows();
-  renderEvents();
-  renderCommittee();
-  renderDonors();
-  renderDraw();
-  renderGallery();
-  renderFaq();
-  initTabbar();
-
-   if (window.AndroidApp && typeof window.AndroidApp.dataLoaded === "function") {
-    window.AndroidApp.dataLoaded();
-}
+const UI_TEXT = {
+  en:{languageButton:'తెలుగు',home:'Home',events:'Events',donors:'Donors',draw:'Draw',gallery:'Gallery',festivalSchedule:'Festival Schedule',committee:'Committee',luckyDraw:'Lucky Draw',contactVenue:'Contact & Venue',whoWeAre:'Who We Are',ourCommittee:'Our GNC Committee',meetTeam:'Meet The Team',committeeMembers:'Committee Members',withGratitude:'With Gratitude',ourDonors:'Our Donors',moments:'Moments',goodToKnow:'Good to Know',commonQuestions:'Common Questions',visitUs:'Visit Us',venueContact:'Venue & Contact',viewSchedule:'View Schedule',whatsappGroup:'WhatsApp Group',supportUtsav:"Support This Year's Utsav",contactToDonate:'Contact to Donate',lastYearsWinners:"Last Year's Winners",idolDonor:'Idol Donor',addPhoto:'Add Photo',ticket:'Ticket',days:'Days',hrs:'Hrs',min:'Min',sec:'Sec',yearsStrong:'Years Strong',daysOfUtsav:'Days of Utsav',familiesJoined:'Families Joined',luckyDrawWinners:'Lucky Draw & Winners',visarjanDaySpecial:'Visarjan Day Special'},
+  te:{languageButton:'English',home:'హోమ్',events:'కార్యక్రమాలు',donors:'దాతలు',draw:'డ్రా',gallery:'గ్యాలరీ',festivalSchedule:'పండుగ కార్యక్రమాలు',committee:'కమిటీ',luckyDraw:'లక్కీ డ్రా',contactVenue:'సంప్రదించండి & వేదిక',whoWeAre:'మా గురించి',ourCommittee:'మా GNC కమిటీ',meetTeam:'మా బృందాన్ని కలవండి',committeeMembers:'కమిటీ సభ్యులు',withGratitude:'కృతజ్ఞతలతో',ourDonors:'మా దాతలు',moments:'జ్ఞాపకాలు',goodToKnow:'తెలుసుకోవాల్సిన విషయాలు',commonQuestions:'సాధారణ ప్రశ్నలు',visitUs:'మమ్మల్ని సందర్శించండి',venueContact:'వేదిక & సంప్రదింపు',viewSchedule:'కార్యక్రమాలు చూడండి',whatsappGroup:'వాట్సాప్ గ్రూప్',supportUtsav:'ఈ సంవత్సరం ఉత్సవానికి సహకరించండి',contactToDonate:'విరాళం కోసం సంప్రదించండి',lastYearsWinners:'గత సంవత్సరం విజేతలు',idolDonor:'విగ్రహ దాత',addPhoto:'ఫోటో జోడించండి',ticket:'టికెట్',days:'రోజులు',hrs:'గం.',min:'ని.',sec:'సె.',yearsStrong:'సంవత్సరాలుగా',daysOfUtsav:'ఉత్సవ రోజులు',familiesJoined:'కుటుంబాలు పాల్గొన్నారు',luckyDrawWinners:'లక్కీ డ్రా & విజేతలు',visarjanDaySpecial:'విసర్జన రోజు ప్రత్యేకం'}
 };
+function t(k){return UI_TEXT[currentLanguage][k]||UI_TEXT.en[k]||k;}
+function localized(o,f){if(currentLanguage==='te'&&o&&o[f+'_te']&&String(o[f+'_te']).trim()!=='')return o[f+'_te'];return o&&o[f]!=null?o[f]:'';}
+function applyLanguage(){document.documentElement.lang=currentLanguage==='te'?'te':'en';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(UI_TEXT[currentLanguage][k])el.textContent=UI_TEXT[currentLanguage][k];});const b=document.getElementById('languageBtn');if(b)b.textContent=t('languageButton');if(sheetDataLoaded){renderEvents();renderCommittee();renderDonors();renderDraw();renderGallery();renderFaq();}}
+function toggleLanguage(){currentLanguage=currentLanguage==='en'?'te':'en';localStorage.setItem('gncLanguage',currentLanguage);applyLanguage();}
 
-function loadSheetData(){
-  const script = document.createElement('script');
-  script.src = SHEET_API + '?prefix=handleSheetData&_=' + Date.now();
-  script.async = true;
-  console.log("Loading Google Sheets JSONP:", script.src);
-  script.onerror = function(){
-    console.error("Google Sheets JSONP request failed");
-  };
-  document.head.appendChild(script);
-}
-
-document.addEventListener('DOMContentLoaded', loadSheetData);
+function startCountdown(){if(!DATA.festival||!DATA.festival.sthapanaISO)return;const target=new Date(DATA.festival.sthapanaISO).getTime();const els={d:document.getElementById('cd-days'),h:document.getElementById('cd-hours'),m:document.getElementById('cd-mins'),s:document.getElementById('cd-secs')};function tick(){let diff=Math.max(0,target-Date.now());const d=Math.floor(diff/86400000);diff-=d*86400000;const h=Math.floor(diff/3600000);diff-=h*3600000;const m=Math.floor(diff/60000);diff-=m*60000;const sec=Math.floor(diff/1000);if(els.d)els.d.textContent=String(d).padStart(2,'0');if(els.h)els.h.textContent=String(h).padStart(2,'0');if(els.m)els.m.textContent=String(m).padStart(2,'0');if(els.s)els.s.textContent=String(sec).padStart(2,'0');}tick();setInterval(tick,1000);}
+function diyaSVG(){return `<svg viewBox="0 0 40 34" width="100%" xmlns="http://www.w3.org/2000/svg"><ellipse class="flame" cx="20" cy="10" rx="4.4" ry="7" fill="#ffc94d"/><ellipse class="flame" cx="20" cy="11.5" rx="2.3" ry="4" fill="#ff8a3d"/><path d="M4 20c0 7 7 11 16 11s16-4 16-11c0-2-2-3-4-2-3 1.4-7 2.4-12 2.4S9 19.4 6 18c-2-1-2 0-2 2z" fill="#f0a500"/><ellipse cx="20" cy="19.6" rx="16" ry="3.4" fill="#ffdb84"/></svg>`;}
+function fillDiyaRows(){['diyaRow','diyaRow2','diyaRow3','diyaRow4'].forEach(id=>{const row=document.getElementById(id);if(!row)return;let html='';for(let i=0;i<9;i++)html+=`<div class="diya">${diyaSVG()}</div>`;row.innerHTML=html;});}
+const clockIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>`;
+const photoIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5L4 20"/></svg>`;
+const plusIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
+function initials(n){return String(n||'').split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+function renderEvents(){const w=document.getElementById('eventsScroll');if(!w)return;w.innerHTML=(DATA.events||[]).map(e=>`<div class="day-card"><span class="day-badge">DAY ${e.day}</span><h4>${localized(e,'title')}</h4><div class="date">${localized(e,'date')}</div><p class="desc">${localized(e,'desc')}</p><div class="time">${clockIcon}${localized(e,'time')}</div></div>`).join('');}
+function renderCommittee(){const w=document.getElementById('committeeScroll');if(!w)return;w.innerHTML=(DATA.committee||[]).map(m=>{const n=localized(m,'name');const c=m.color||['#b81c37','#f0a500'];return `<div class="member-card"><div class="avatar" style="background:linear-gradient(135deg,${c[0]},${c[1]})">${initials(n)}</div><div class="mname">${n}</div></div>`;}).join('');}
+function renderDonors(){const w=document.getElementById('donorSection');if(!w)return;const d=DATA.donors||{};const idol=currentLanguage==='te'?(d.idol_te||d.idol):d.idol;const arr=d.others||[];const chips=arr.map((n,i)=>`<span class="marquee-chip">${currentLanguage==='te'?(d.others_te?.[i]||n):n}</span>`).join('');w.innerHTML=`<div class="idol-donor"><h4>${t('idolDonor')}</h4><div class="idol-donor-name">${idol||''}</div></div><div class="donors-marquee-container"><div class="donors-marquee">${chips}${chips}</div></div>`;}
+function renderDraw(){const p=document.getElementById('prizeRow'),w=document.getElementById('winnersGrid');if(p)p.innerHTML=(DATA.prizes||[]).map(x=>`<div class="prize-card"><div class="rank">${x.rank}</div><div class="pname">${localized(x,'name')}</div></div>`).join('');if(w)w.innerHTML=(DATA.winners||[]).map(x=>{const n=localized(x,'name');return `<div class="winner-card"><div class="avatar" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:var(--maroon-950);">${initials(n)}</div><div><div class="wname">${n}</div><div class="wprize">${localized(x,'prize')}</div><div class="wticket">${t('ticket')} ${x.ticket}</div></div></div>`;}).join('');}
+function renderGallery(){const w=document.getElementById('galleryGrid');if(!w)return;w.innerHTML=(DATA.gallery||[]).map(x=>{const cap=typeof x==='string'?x:localized(x,'title');return `<div class="gallery-tile" data-cap="${cap}" tabindex="0" role="button" aria-label="View ${cap} photo"><div class="ph">${photoIcon}<span style="font-size:9.5px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">${t('addPhoto')}</span></div><div class="cap">${cap}</div></div>`;}).join('');w.querySelectorAll('.gallery-tile').forEach(tile=>{tile.addEventListener('click',()=>openLightbox(tile.dataset.cap));tile.addEventListener('keypress',e=>{if(e.key==='Enter')tile.click();});});}
+function openLightbox(cap){const box=document.getElementById('lightboxBox'),ph=document.querySelector('.gallery-tile .ph');if(!box)return;if(ph)box.style.background=getComputedStyle(ph).background;box.innerHTML=`${photoIcon}<div class="cap">${cap}</div>`;box.style.display='flex';box.style.flexDirection='column';box.style.alignItems='center';box.style.justifyContent='center';box.style.color='rgba(255,255,255,0.85)';document.getElementById('lightbox').classList.add('open');}
+document.getElementById('lightboxClose').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open');});
+function renderFaq(){const w=document.getElementById('faqList');if(!w)return;w.innerHTML=(DATA.faqs||[]).map((f,i)=>`<div class="faq-item" id="faq-${i}"><button class="faq-q" data-i="${i}">${localized(f,'q')}${plusIcon}</button><div class="faq-a"><div class="faq-a-inner">${localized(f,'a')}</div></div></div>`).join('');w.querySelectorAll('.faq-q').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),open=item.classList.contains('open');w.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!open)item.classList.add('open');}));}
+const sideMenu=document.getElementById('sideMenu'),menuScrim=document.getElementById('menuScrim');function openMenu(){sideMenu.classList.add('open');menuScrim.classList.add('open');sideMenu.setAttribute('aria-hidden','false');}function closeMenu(){sideMenu.classList.remove('open');menuScrim.classList.remove('open');sideMenu.setAttribute('aria-hidden','true');}document.getElementById('menuOpenBtn').addEventListener('click',openMenu);document.getElementById('menuCloseBtn').addEventListener('click',closeMenu);menuScrim.addEventListener('click',closeMenu);document.querySelectorAll('.menu-link').forEach(a=>a.addEventListener('click',closeMenu));
+function initTabbar(){const tabs=document.querySelectorAll('.tabbar a'),sections=['home','events','donors','draw','gallery'].map(id=>document.getElementById(id));const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)tabs.forEach(t=>t.classList.toggle('active',t.dataset.target===entry.target.id));}),{rootMargin:'-40% 0px -50% 0px',threshold:0});sections.forEach(s=>{if(s)obs.observe(s);});}
+function showDataError(message){console.error('Google Sheets error:',message);if(document.getElementById('dataLoadError'))return;const el=document.createElement('div');el.id='dataLoadError';el.style.cssText='position:fixed;left:12px;right:12px;bottom:82px;z-index:9999;padding:12px 14px;border-radius:12px;background:#26060e;color:#fff;font:500 12px/1.5 Poppins,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.25);';el.textContent=message;document.body.appendChild(el);}
+window.handleSheetData=function(data){try{if(!data||typeof data!=='object')throw new Error('The Google Sheets API returned invalid data.');DATA=data;sheetDataLoaded=true;console.log('Google Sheets V2 data loaded:',DATA);startCountdown();fillDiyaRows();applyLanguage();renderEvents();renderCommittee();renderDonors();renderDraw();renderGallery();renderFaq();initTabbar();}catch(e){showDataError(e.message||'Unable to process Google Sheets data.');}};
+function loadSheetData(){const script=document.createElement('script');script.src=SHEET_API+'?prefix=handleSheetData&version=2&_='+Date.now();script.async=true;console.log('Loading Google Sheets V2 JSONP:',script.src);script.onerror=()=>showDataError('Unable to load the latest festival data. Please refresh the page.');document.head.appendChild(script);}
+document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('languageBtn');if(b)b.addEventListener('click',toggleLanguage);applyLanguage();loadSheetData();});
 </script>
 </body>
 </html>
